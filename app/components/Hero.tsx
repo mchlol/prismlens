@@ -13,12 +13,11 @@ export default function Hero() {
 
             </div>
 
-            <div className="hero--logo-wrap absolute top-1/4 left-1/4">
+            <div className="hero--logo-wrap border-2 border-red-500 z-10 absolute top-1/4 left-1/4">
 
-                <img src={LogoFull} alt="logo" className="w-[600px]" />
+                <img src={LogoFull} alt="logo" className="w-[500px] max-w-full" />
 
             </div>
-            
 
         </div>
 
