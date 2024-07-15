@@ -18,7 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter flex flex-col justify-between min-h-[100vh] leading-relaxed">
+      <body className="font-inter flex flex-col justify-between min-h-[100vh] leading-relaxed bg-blueblack text-[#FAF9E5]">
         <NavBar />
         <main className="min-h-[calc(100vh-8rem)]">
           {children}
