@@ -3,17 +3,20 @@ import { Link } from "@remix-run/react";
 
 export default function NavBar() {
     return (
-        <nav className="flex justify-between p-4 border-b-2">
+        <nav className="flex flex-wrap justify-between align-middle p-4 pr-8 pl-8 border-b-2 h-16">
             <div>
                 <Link to="/" className="flex gap-1">
-                    <h1 className="font-averiaSerifLibre">PrismLens</h1>
-                    <img src={Logo} alt="logo" className="max-w-4" />
+                    <img src={Logo} alt="logo" className="max-w-6" />
                 </Link>
-                
             </div>
+            <h1 className="font-averiaSerifLibre">PrismLens</h1>
             <ul className="flex gap-4">
-                <li>About</li>
-                <li>Resources</li>
+                <li>
+                    <Link to="/about">About</Link>
+                </li>
+                <li>
+                    Resources
+                </li>
             </ul>
         </nav> 
     )
