@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.svg-shadow {
+    filter: drop-shadow(5px 5px 8px rgb(0 0 0 / 1));
+}
