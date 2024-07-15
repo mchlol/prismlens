@@ -18,9 +18,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="flex flex-col justify-between h-[100vh]">
         <NavBar />
-        {children}
+        <main className="h-[100%]">
+          {children}
+        </main>
         <Footer />
         <ScrollRestoration />
         <Scripts />
