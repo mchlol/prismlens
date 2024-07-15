@@ -3,7 +3,7 @@ import { Link } from "@remix-run/react";
 
 export default function NavBar() {
     return (
-        <nav className="flex flex-wrap justify-between align-middle p-4 pr-8 pl-8 border-b-2 h-16">
+        <nav className="flex flex-wrap justify-between align-middle p-4 pr-8 pl-8 h-16">
             <div>
                 <Link to="/" className="flex gap-1">
                     <img src={Logo} alt="logo" className="max-w-6" />
