@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import Hero from "~/components/Hero";
 
 
 export const meta: MetaFunction = () => {
@@ -11,9 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="font-sans p-4">
-      <h1 className="text-3xl font-averiaSerifLibre">PrismLens</h1>
-      
-      
+      <Hero />
     </div>
   );
 }
