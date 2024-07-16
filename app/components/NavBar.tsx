@@ -10,12 +10,14 @@ export default function NavBar() {
                 </Link>
             </div>
             <h1 className="font-averiaSerifLibre">PrismLens</h1>
-            <ul className="flex gap-4">
-                <li>
+            <ul className="flex gap-4 font-averiaSerifLibre text-sm text-ridergreen">
+                <li className="hover:text-rideryellow">
                     <Link to="/about">About</Link>
                 </li>
-                <li>
-                    Resources
+                <li className="hover:text-rideryellow">
+                    <Link to="/resources">
+                        Resources
+                    </Link>
                 </li>
             </ul>
         </nav> 
