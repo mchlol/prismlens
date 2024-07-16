@@ -24,13 +24,11 @@ const TarotCard: React.FC<TarotCardProps> = ({card}) => {
     const [cardFlipped, setCardFlipped] = React.useState(false);
 
     return (
-        <div className="tarot-card">
+        <div>
             {
                 card 
                 &&
-                <div>
-
-                    <h3>{cardFlipped ? card.name : 'Click the card to reveal'}</h3>
+                <div className="tarot-card">
                     <div className="scene">
                         <div className={`tarot-card ${cardFlipped ? 'tarot-card-flipped' : ''}`} onClick={() => setCardFlipped(prevCardFlipped => !prevCardFlipped)}>
                             <div className="card-face card-front">
@@ -41,17 +39,26 @@ const TarotCard: React.FC<TarotCardProps> = ({card}) => {
                             </div>
                         </div>
                     </div>
+
                 </div>
 
             }
             {
-                cardFlipped &&
-                <div className="fade-in-text flex flex-col gap-4">
-                     <p className="max-w-xl mx-auto">{card.meaning_up}</p>
+                cardFlipped
+                ?
+                <div className="fade-in-text flex flex-col gap-4 mb-8">
+                    <h3 className="font-averiaSerifLibre text-xl">{card.name}</h3>
+                    <p className="max-w-xl mx-auto p-8">
+                        {card.meaning_up}
+                    </p>
                     <Link to="/yesno" onClick={() => setCardFlipped(prevCardFlipped => !prevCardFlipped)}>
                         <button className="bordered border-2 p-2 rounded-lg">Get a new card</button>
                     </Link>
                 </div>
+                : <em className="text-sm">
+                        Click the card to reveal
+                    </em>
+                
             }
 
             
