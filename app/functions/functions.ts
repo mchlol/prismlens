@@ -1,19 +1,6 @@
-type CardInfo = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
-
 // intepret the short name to retrieve the right card image
-function getImgCode(card: CardInfo) {
-    console.log('getImgCode card: ',card);
-    const name = card.name_short;
+function getImgCode(card: string) {
+    const name = card;
     let letter = name.slice(0,1);
     let lastNums = name.slice(2);
 
