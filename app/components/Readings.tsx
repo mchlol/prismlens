@@ -10,7 +10,9 @@ export default function Readings() {
                 <Link to="/yesno">
                     <ReadingCard title="Yes/No Question" content="A single card to gain insight on a specific question or situation." />
                 </Link>
-                <ReadingCard title="Past Present Future" content="A three-card spread to represent three stages of your life." />
+                <Link to="/threecards">
+                    <ReadingCard title="Past Present Future" content="A three-card spread to represent three stages of your life." />
+                </Link>
             </div>
 
 
