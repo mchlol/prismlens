@@ -2,6 +2,7 @@ import TarotCard from "~/components/TarotCard";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 
+// type to hold all the properties returned from the api
 type CardObject = {
     desc: string
     meaning_rev: string
@@ -21,7 +22,8 @@ type LoaderData = {
 export let loader: LoaderFunction = async () => {
     const response = await fetch(`https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1`);
     const data = await response.json();
-    const card = data.cards[0];
+    console.log('Data: ',data);
+    const card = data.cards[0]; // n number of cards already returns an array, even if n is 1
     return json<LoaderData>({ card })
 }
 
