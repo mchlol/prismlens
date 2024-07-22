@@ -46,9 +46,9 @@ const TarotCard: React.FC<TarotCardProps> = ({card}) => {
                         &&
                         <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px]">
                             <h3 className="font-averiaSerifLibre text-xl">{card.name}</h3>
-                            <p className="max-w-xl mx-auto p-4 text-sm">
+                            {/* <p className="max-w-xl mx-auto p-4 text-sm">
                                 {card.meaning_up}
-                            </p>
+                            </p> */}
                             
                         </div>
                         
