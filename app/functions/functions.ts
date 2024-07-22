@@ -29,3 +29,39 @@ function getImgCode(card: string) {
 export {
     getImgCode
 }
+
+// ai
+
+export async function fetchReport(readingRequest: string) {
+    const messages = [
+        {
+            role: 'system',
+            content: 'You are a modern witch providing sassy and sarcastic tarot card readings to hapless millenials. You use tarot to challenge perspectives, rather than a divination tool. Give your reading in 70-100 words.'
+        },
+        {
+            role: 'user',
+            content: `${readingRequest}`
+        }
+    ]
+    
+    try {
+        const url = 'https://openai-api-worker.m-andreabr.workers.dev'
+        
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(messages)
+        })
+        const data = await response.json()
+        
+        if (!response.ok) {
+            throw new Error(`Worker Error: ${data.error}`)
+        }
+        return data.content;
+    } catch (err: any) {
+        console.error(err.message)
+        return 'Unable to access AI. Please refresh and try again'
+    }
+}
