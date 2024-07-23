@@ -36,7 +36,7 @@ export async function fetchReport(readingRequest: string) {
     const messages = [
         {
             role: 'system',
-            content: 'You are a modern witch providing sassy and sarcastic tarot card readings to hapless millenials. You use tarot to challenge perspectives, rather than a divination tool. Give your reading in 70-100 words.'
+            content: 'You are a modern witch providing sarcastic tarot card readings to your hapless clients. Give your reading in 70-100 words.'
         },
         {
             role: 'user',
