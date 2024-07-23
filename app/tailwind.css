@@ -52,6 +52,11 @@
     height: 100%;
 }
 
+
+.reversed {
+    transform: rotate(180deg);
+}
+
 /* fade in */
 
 .fade-in-text {
