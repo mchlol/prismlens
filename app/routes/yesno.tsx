@@ -1,7 +1,7 @@
 import TarotCard from "~/components/TarotCard";
+import { useState } from "react";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
-import { useState } from "react";
 
 // type to hold all the properties returned from the api
 type CardObject = {
@@ -32,10 +32,10 @@ export default function YesNo() {
 
     const { card } = useLoaderData<LoaderData>();
     const [allCardsFlipped, setAllCardsFlipped] = useState(false); 
-    const [cardsStatus, setCardsStatus] = useState([]);
 
     function sendData(cardId: string, flipped: boolean, reversed: boolean) {
         console.log(`Card: ${cardId}, Flipped: ${flipped}, reversed: ${reversed}`);
+        setAllCardsFlipped(prevAllCardsFlipped => !prevAllCardsFlipped);
     }
     
     return (
@@ -46,6 +46,9 @@ export default function YesNo() {
                 card && 
                 <div className="flex flex-row flex-wrap place-content-center gap-4">
                     <TarotCard card={card} sendData={sendData}/>
+                    {
+                        allCardsFlipped && <p>Reading here</p>
+                    }
                 </div>
             }
             
