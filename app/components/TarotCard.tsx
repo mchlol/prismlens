@@ -1,8 +1,8 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { getImgCode } from "~/functions/functions";
-import { Link } from "@remix-run/react";
 
 interface TarotCardProps {
+    sendData: (cardId: string, flipped: boolean, reversed: boolean) => void
     card: {
         desc: string
         meaning_rev: string
@@ -16,12 +16,22 @@ interface TarotCardProps {
     }
 }
 
-
-const TarotCard: React.FC<TarotCardProps> = ({card}) => {
+const TarotCard = ({card, sendData}: TarotCardProps) => {
 
     const imagePath = `/cards/${getImgCode(card.name_short)}.jpg`;
 
-    const [cardFlipped, setCardFlipped] = React.useState(false);
+    const [cardFlipped, setCardFlipped] = useState(false);
+    const [cardReversed, setCardReversed] = useState(false);
+
+    function isReversed() {
+        const options: Array<boolean> = [true, false];
+        const randomNum: number = Math.floor(Math.random() * 2);
+        setCardReversed(options[randomNum]);
+    }
+
+    useEffect( () => {
+        isReversed();
+    },[card])
 
     return (
         <div className="tarot-card-wrapper">
@@ -31,12 +41,16 @@ const TarotCard: React.FC<TarotCardProps> = ({card}) => {
                 <div className="tarot-card">
 
                     <div className="scene">
-                        <div className={`tarot-card ${cardFlipped ? 'tarot-card-flipped' : ''}`} onClick={() => setCardFlipped(prevCardFlipped => !prevCardFlipped)}>
+                        <div className={`tarot-card ${cardFlipped ? 'tarot-card-flipped' : ''}`} onClick={() => {
+                            setCardFlipped(prevCardFlipped => !prevCardFlipped)
+                            sendData(card.name_short, !cardFlipped, cardReversed);
+                            }
+                            }>
                             <div className="card-face card-front">
-                                <img src="/cards/back.jpg" alt="back of the Rider-Waite tarot deck" />
+                                <img src="/cards/back.jpg" alt="back of the Rider-Waite-Smith tarot deck" />
                             </div>
                             <div className="card-face card-back">
-                                <img src={imagePath} alt={card.desc} />
+                                <img src={imagePath} alt={card.name} className={`${cardReversed && 'reversed'}`}/>
                             </div>
                         </div>
                     </div>
@@ -45,10 +59,12 @@ const TarotCard: React.FC<TarotCardProps> = ({card}) => {
                         cardFlipped
                         &&
                         <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px]">
-                            <h3 className="font-averiaSerifLibre text-xl">{card.name}</h3>
-                            {/* <p className="max-w-xl mx-auto p-4 text-sm">
-                                {card.meaning_up}
-                            </p> */}
+                            <h3 className="font-averiaSerifLibre text-xl">{card.name} {cardReversed && '(reversed)'}</h3>
+                            <p className="max-w-xl mx-auto p-4 text-sm">
+                                {cardReversed
+                                ? card.meaning_rev
+                                : card.meaning_up}
+                            </p>
                             
                         </div>
                         
