@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getImgCode } from "~/functions/functions";
 
 interface TarotCardProps {
-    sendData: (cardId: string, flipped: boolean, reversed: boolean) => void
+    sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
     card: {
         desc: string
         meaning_rev: string
@@ -43,7 +43,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                     <div className="scene">
                         <div className={`tarot-card ${cardFlipped ? 'tarot-card-flipped' : ''}`} onClick={() => {
                             setCardFlipped(prevCardFlipped => !prevCardFlipped)
-                            sendData(card.name_short, !cardFlipped, cardReversed);
+                            sendData(card.name_short, !cardFlipped, cardReversed, card.name);
                             }
                             }>
                             <div className="card-face card-front">
