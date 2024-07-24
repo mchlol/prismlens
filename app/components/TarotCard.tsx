@@ -34,7 +34,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
     },[card])
 
     return (
-        <div className="tarot-card-wrapper">
+        <div className="tarot-card-wrapper fade-in-text">
             {
                 card 
                 &&
