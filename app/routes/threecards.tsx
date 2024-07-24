@@ -5,6 +5,14 @@ import { useEffect, useState } from "react";
 import { fetchReport } from "~/functions/functions";
 import Reading from "~/components/Reading";
 
+// defining cardId type like this means the object can have any number of properties matching this shape
+interface CardStatusObj {
+    [cardId: string]: {
+        flipped: boolean
+        reversed: boolean
+    },
+}
+
 type CardObject = {
     desc: string
     meaning_rev: string
@@ -31,21 +39,38 @@ export let loader: LoaderFunction = async () => {
 export default function ThreeCards() {
 
     const { cards } = useLoaderData<LoaderData>();
-    const [cardData, setCardData] = useState([]);
-    const [revealed, setRevealed] = useState<boolean>(false);
+    const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
+    const [allCardsFlipped, setAllCardsFlipped] = useState<boolean>(false);
 
     function sendData(cardId: string, flipped: boolean, reversed: boolean) {
         console.log(`Card: ${cardId}, Flipped: ${flipped}, reversed: ${reversed}`);
-        // when the card is clicked, the id and statuses are sent back via this function
-        // we need to save this in state as an array of objects
-        // for three cards we know there will be three so we can use array indexes?
-        // ? card positions?
+        
+        // ! only show the reading when all cards have been flipped
+        // TODO: get the upright or reversed status of the card
+
+        // using brackets here means the cardId can be any value
+        setCardStatus( (prevCardStatus) => ({
+            ...prevCardStatus,
+            [cardId]: {
+                flipped,
+                reversed
+            }
+        }));
         
     }
+
+    useEffect( () => {
+        // check all cards accounted for otherwise every will return true
+        const hasCards = Object.keys(cardStatus).length === 3;
+        const allFlipped = hasCards && Object.values(cardStatus).every(item => item.flipped === true);
+        setAllCardsFlipped(allFlipped);
+    },[cardStatus]);
+
 
     return (
         <section className="text-center">
             <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Past, Present, Future</h2>
+
 
             {
                 cards 
@@ -57,31 +82,34 @@ export default function ThreeCards() {
                         {cards.map(card => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
                     </div>
 
-                    <button 
-                    className="border-2 p-2 rounded-lg" 
-                    onClick={() => setRevealed(prevRevealed => !prevRevealed)}>
-                        {`${revealed ? 'Hide ' : 'Reveal '}`} Report
-                     </button>
+                    {
+                        allCardsFlipped &&
+                        <button className="border-2 p-2 rounded-lg">
+                            Get Report
+                        </button>
+                    }
+                    
 
                 </div>
                 : <p>Unable to retrieve card</p>
             }
 
             {
-                revealed 
+                allCardsFlipped 
                 ? 
-                    <Reading readingType={'Past present future'} cards={[cards[0].name, cards[1].name, cards[2].name]}/>
+                    // <Reading 
+                    // readingType={'Past present future'} 
+                    // cards={
+                    //     [
+                    //         cards[0].name, 
+                    //         cards[1].name, 
+                    //         cards[2].name]
+                    // }
+                    // />
+                    <p>Reading go here!</p>
                 : 
-                    null
+                    <p>Flip all the cards to get your reading.</p>
             }
-
-            {/* {
-                revealed
-                ?
-                report &&
-                <p className="max-w-[800px] mx-auto fade-in-text p-4">{report}</p>
-                : null
-            } */}
 
             <Link to="/">
                 <button className="border-2 p-2 rounded-lg">Home</button>
