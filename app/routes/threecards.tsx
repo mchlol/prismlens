@@ -10,6 +10,7 @@ interface CardStatusObj {
     [cardId: string]: {
         flipped: boolean
         reversed: boolean
+        name: string
     },
 }
 
@@ -42,18 +43,14 @@ export default function ThreeCards() {
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
     const [allCardsFlipped, setAllCardsFlipped] = useState<boolean>(false);
 
-    function sendData(cardId: string, flipped: boolean, reversed: boolean) {
-        console.log(`Card: ${cardId}, Flipped: ${flipped}, reversed: ${reversed}`);
-        
-        // ! only show the reading when all cards have been flipped
-        // TODO: get the upright or reversed status of the card
-
+    function sendData(cardId: string, flipped: boolean, reversed: boolean, name: string) {
         // using brackets here means the cardId can be any value
         setCardStatus( (prevCardStatus) => ({
             ...prevCardStatus,
             [cardId]: {
                 flipped,
-                reversed
+                reversed,
+                name
             }
         }));
         
@@ -65,7 +62,6 @@ export default function ThreeCards() {
         const allFlipped = hasCards && Object.values(cardStatus).every(item => item.flipped === true);
         setAllCardsFlipped(allFlipped);
     },[cardStatus]);
-
 
     return (
         <section className="text-center">
@@ -81,13 +77,6 @@ export default function ThreeCards() {
                     <div className="flex flex-row flex-wrap place-content-center gap-4">
                         {cards.map(card => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
                     </div>
-
-                    {
-                        allCardsFlipped &&
-                        <button className="border-2 p-2 rounded-lg">
-                            Get Report
-                        </button>
-                    }
                     
 
                 </div>
@@ -97,16 +86,23 @@ export default function ThreeCards() {
             {
                 allCardsFlipped 
                 ? 
-                    // <Reading 
-                    // readingType={'Past present future'} 
-                    // cards={
-                    //     [
-                    //         cards[0].name, 
-                    //         cards[1].name, 
-                    //         cards[2].name]
-                    // }
-                    // />
-                    <p>Reading go here!</p>
+
+                    <div className="reading-container">
+                        <div className="reading-wrapper">
+                            {Object.values(cardStatus).map(card => <p>{`${card.name} ${card.reversed ? 'reversed' : 'upright'}`}</p>)}
+                            <Reading 
+                                readingType={'Past present future'} 
+                                cards={
+                                    [
+                                        `${Object.values(cardStatus)[0].name} ${Object.values(cardStatus)[0].reversed ? 'reversed' : 'upright'}`, 
+                                        `${Object.values(cardStatus)[1].name} ${Object.values(cardStatus)[1].reversed ? 'reversed' : 'upright'}`, 
+                                        `${Object.values(cardStatus)[2].name} ${Object.values(cardStatus)[2].reversed ? 'reversed' : 'upright'}`
+                                ]
+                                }
+                                />
+                        </div>
+                    </div>
+
                 : 
                     <p>Flip all the cards to get your reading.</p>
             }
