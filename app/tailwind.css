@@ -3,6 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.grad-serenity {
+    background: rgb(247,203,200);
+    background: linear-gradient(165deg, rgba(247,203,200,1) 0%, rgba(66,64,111,1) 80%);
+}
+
 .svg-shadow {
     filter: drop-shadow(5px 5px 8px rgb(0 0 0 / 1));
 }
@@ -15,7 +20,7 @@
     width: 200px;
     border: 1px solid #ddd;
     border-radius: 15px;
-    background-color: #f5f5f5;
+    background-color: #F5f5f5;
     margin: 1em auto;
     padding: 1em;
 }
