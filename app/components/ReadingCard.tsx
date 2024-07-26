@@ -1,13 +1,26 @@
+import StarCircleOutline from "../assets/starcircle-outline.svg";
+
 type Props = {
-    title: string
-    content: string
+    children: React.ReactNode
+    imgPosition: string
+    rotate: string
 }
 
-export default function ReadingCard(props: Props) {
+export default function ReadingCard({children, imgPosition, rotate}: Props) {
+
+    let position = '';
+    if (imgPosition === 'tl') {
+        position = '-top-5 -left-[150px]'
+    } else if (imgPosition === 'tr') {
+        position = 'top-[-150px] -right-[150px]'
+    } 
     return (
-        <div className="w-64 border-2 p-8 rounded-3xl text-center transition hover:text-ridergreen">
-            <h3 className="font-averiaSerifLibre text-lg mb-2">{props.title}</h3>
-            <p>{props.content}</p>
+        <div className="w-64 p-8 h-80 rounded-3xl text-ridercream bg-[url('/meshgradbg-duo.png')] bg-cover hover:scale-[1.03] transition ease-in-out relative overflow-hidden shadow-sm">
+            <div className={`reading-card__img absolute ${position} rotate-[${rotate}] blur-[2px]`}>
+                <img src={StarCircleOutline} alt="" />
+            </div>
+            
+            <p className="absolute bottom-0 left-0 p-8 text-2xl">{children}</p>
         </div>
     )
 }
