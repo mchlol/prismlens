@@ -28,10 +28,10 @@ const Reading = ({readingType, cards}: AppProps) => {
         }
     };
     
-    useEffect( () => {
-        getReport();
-        console.log(report);
-    },[cards]);
+    // useEffect( () => {
+    //     getReport();
+    //     console.log(report);
+    // },[cards]);
 
     console.log('Reading props: ', readingType, cards);
 
@@ -41,7 +41,10 @@ const Reading = ({readingType, cards}: AppProps) => {
             {
                 loading
                 ? 
-                    <p className="max-w-[800px] mx-auto fade-in-text p-4">Consulting the cards...please wait...</p>
+                    <div className="reading-container">
+                        <h3 className="text-lg font-averiaSerifLibre">Your Reading</h3>
+                        <p className="max-w-[800px] mx-auto fade-in-text p-4">Consulting the cards...please wait...</p>
+                    </div>
                 :
                     report && <p className="max-w-[800px] mx-auto fade-in-text p-4">{report}</p>
             }
