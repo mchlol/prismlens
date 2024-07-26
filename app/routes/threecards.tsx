@@ -1,9 +1,9 @@
 import TarotCard from "~/components/TarotCard";
 import { LoaderFunction } from "@remix-run/node";
-import { useLoaderData, json, Link } from "@remix-run/react";
+import { useLoaderData, json } from "@remix-run/react";
 import { useEffect, useState } from "react";
-import { fetchReport } from "~/functions/functions";
 import Reading from "~/components/Reading";
+import HomeButton from "~/components/HomeButton";
 
 // defining cardId type like this means the object can have any number of properties matching this shape
 interface CardStatusObj {
@@ -64,17 +64,16 @@ export default function ThreeCards() {
     },[cardStatus]);
 
     return (
-        <section className="text-center">
-            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Past, Present, Future</h2>
-
+        <section className="text-center pt-8 pb-8">
+            <h2 className="uppercase text-4xl font-averiaSerifLibre text-blueblack">Past, Present, Future</h2>
 
             {
                 cards 
                 ? 
                 <div className="cards-wrapper">
-                    <h3 className="font-averiaSerifLibre text-lg">Your Cards</h3>
+                    <h3 className="font-averiaSerifLibre text-lg text-blueblack">Your Cards</h3>
 
-                    <div className="flex flex-row flex-wrap place-content-center gap-4">
+                    <div className="flex flex-row flex-wrap place-content-center gap-4 text-ridercream">
                         {cards.map(card => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
                     </div>
                     
@@ -87,29 +86,24 @@ export default function ThreeCards() {
                 allCardsFlipped 
                 ? 
 
-                    <div className="reading-container">
-                        <div className="reading-wrapper">
-                            {Object.values(cardStatus).map(card => <p>{`${card.name} ${card.reversed ? 'reversed' : 'upright'}`}</p>)}
-                            <Reading 
-                                readingType={'Past present future'} 
-                                cards={
-                                    [
-                                        `${Object.values(cardStatus)[0].name} ${Object.values(cardStatus)[0].reversed ? 'reversed' : 'upright'}`, 
-                                        `${Object.values(cardStatus)[1].name} ${Object.values(cardStatus)[1].reversed ? 'reversed' : 'upright'}`, 
-                                        `${Object.values(cardStatus)[2].name} ${Object.values(cardStatus)[2].reversed ? 'reversed' : 'upright'}`
-                                ]
-                                }
-                                />
-                        </div>
+                    <div className="reading-wrapper text-ridercream">
+                        <Reading 
+                            readingType={'Past present future'} 
+                            cards={
+                                [
+                                    `${Object.values(cardStatus)[0].name} ${Object.values(cardStatus)[0].reversed ? 'reversed' : 'upright'}`, 
+                                    `${Object.values(cardStatus)[1].name} ${Object.values(cardStatus)[1].reversed ? 'reversed' : 'upright'}`, 
+                                    `${Object.values(cardStatus)[2].name} ${Object.values(cardStatus)[2].reversed ? 'reversed' : 'upright'}`
+                            ]
+                            }
+                            />
                     </div>
 
                 : 
-                    <p>Flip all the cards to get your reading.</p>
+                    <p className="text-ridercream">Flip all the cards to get your reading.</p>
             }
 
-            <Link to="/">
-                <button className="border-2 p-2 rounded-lg">Home</button>
-            </Link>
+            <HomeButton />
             
 
         </section>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 import Reading from "~/components/Reading";
+import HomeButton from "~/components/HomeButton";
 
 interface CardStatusObj {
     [cardId: string]: {
@@ -61,11 +62,19 @@ export default function YesNo() {
     
     return (
         <section className="text-center">
-            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Yes or No?</h2>
+            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Yes or No</h2>
+            {
+                !allCardsFlipped 
+                && 
+                <div>
+                    <h3 className="font-averiaSerifLibre text-lg">Struggling with a decision?</h3>
+                    <p>Think about your question, then flip the card.</p>
+                </div>
+            }
 
             {
                 card && 
-                <div className="flex flex-row flex-wrap place-content-center gap-4">
+                <div className="flex flex-col flex-wrap items-center justify-center gap-4 text-ridercream">
                     <TarotCard card={card} sendData={sendData}/>
                     {
                         allCardsFlipped &&
@@ -76,6 +85,8 @@ export default function YesNo() {
                     }
                 </div>
             }
+
+            <HomeButton />
             
 
         </section>
