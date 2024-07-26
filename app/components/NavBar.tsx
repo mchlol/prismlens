@@ -6,16 +6,16 @@ export default function NavBar() {
         <nav className="flex flex-wrap justify-between content-center p-4 pr-8 pl-8 h-16">
             <div>
                 <Link to="/" className="flex items-end gap-1">
-                    <h1 className="font-averiaSerifLibre">PrismLens</h1>
+                    <h1 className="font-averiaSerifLibre text-ridercream">PrismLens</h1>
                     <img src={Logo} alt="logo" className="max-w-6" />
                 </Link>
             </div>
             
-            <ul className="flex gap-4 font-averiaSerifLibre text-sm text-ridergreen">
-                <li className="hover:text-rideryellow">
+            <ul className="flex gap-4 font-averiaSerifLibre text-sm text-purplegrey">
+                <li className="hover:text-riderred">
                     <Link to="/about">About</Link>
                 </li>
-                <li className="hover:text-rideryellow">
+                <li className="hover:text-riderred">
                     <Link to="/resources">
                         Resources
                     </Link>
