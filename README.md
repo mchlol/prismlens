@@ -11,6 +11,8 @@ Remix, React, Vite
 - Rider-Waite-Smith tarot illustrations are public domain.
 - tarot01 by <a href="https://unsplash.com/@ceciliamiraldi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Cecilia Miraldi</a> on <a href="https://unsplash.com/photos/a-candle-sitting-next-to-a-set-of-tarot-cards-73j1nQyNhs8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 - prism01 by <a href="https://unsplash.com/@mcarsience_photography?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Meagan Carsience</a> on <a href="https://unsplash.com/photos/a-blurry-image-of-a-black-background-with-white-and-yellow-lights-YiVC0K8pOMg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- prism02 by <a href="https://unsplash.com/@lazycreekimages?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Michael Dziedzic</a> on <a href="https://unsplash.com/photos/black-and-red-triangle-illustration-nc11Hg2ja-s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- tarot02 by <a href="https://unsplash.com/@edznorton?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Edz Norton</a> on <a href="https://unsplash.com/photos/6ea3wzvbDWw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 ## Resources
 
