@@ -55,20 +55,23 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                         </div>
                     </div>
 
+                    <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px] h-[2rem]">
                     {
                         cardFlipped
                         &&
-                        <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px]">
+                            <div>
                             <h3 className="font-averiaSerifLibre text-xl">{card.name} {cardReversed && '(reversed)'}</h3>
-                            <p className="max-w-xl mx-auto p-4 text-sm">
+                            {/* {
+                                <p className="max-w-xl mx-auto p-4 text-sm">
                                 {cardReversed
                                 ? card.meaning_rev
                                 : card.meaning_up}
-                            </p>
-                            
-                        </div>
-                        
+                            </p> 
+                            } */}
+                            </div>
+ 
                     }
+                    </div>
 
                 </div>
 
