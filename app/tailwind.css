@@ -12,6 +12,10 @@
     filter: drop-shadow(5px 5px 8px rgb(0 0 0 / 1));
 }
 
+.svg {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(11%) saturate(2344%) hue-rotate(203deg) brightness(92%) contrast(91%);
+}
+
 /* card flip */
 
 .scene {
