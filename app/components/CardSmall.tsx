@@ -19,9 +19,9 @@ const CardSmall = ({card}: TarotCardProps) => {
     const imagePath = `/cards/${getImgCode(card.name_short)}.jpg`;
 
     return (
-        <div className="flex flex-col justify-center items-center gap-4">
-            <img src={imagePath} className="max-w-[100px]" />
-            <p>{card.name}</p>
+        <div className="flex flex-col justify-center items-center gap-2 mb-2 max-w-[100px]">
+            <img src={imagePath} className="w-full" />
+            <p>{card.name === 'Fortitude' ? 'Strength' : card.name}</p>
         </div>
     )
 }
