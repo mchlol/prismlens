@@ -3,8 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .grad-serenity {
-    background: rgb(247,203,200);
+    background-color: #42406f;
     background: linear-gradient(165deg, rgba(247,203,200,1) 0%, rgba(66,64,111,1) 80%);
 }
 
@@ -14,6 +20,10 @@
 
 .svg {
     filter: brightness(0) saturate(100%) invert(26%) sepia(11%) saturate(2344%) hue-rotate(203deg) brightness(92%) contrast(91%);
+}
+
+.svg-cream {
+    filter: brightness(0) saturate(100%) invert(93%) sepia(55%) saturate(135%) hue-rotate(1deg) brightness(105%) contrast(96%);
 }
 
 /* card flip */
@@ -75,4 +85,18 @@
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
+}
+
+.animate-spin {
+    animation: spin 1s linear;
+    animation-duration: 250ms;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
