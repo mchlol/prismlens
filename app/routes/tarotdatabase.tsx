@@ -3,6 +3,7 @@ import { useLoaderData, json } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import HomeButton from "~/components/HomeButton";
 import CardSmall from "~/components/CardSmall";
+import DatabaseSection from "~/components/DatabaseSection";
 
 type CardObject = {
     desc: string
@@ -31,7 +32,7 @@ export default function TarotDatabase() {
 
     const { cards } = useLoaderData<LoaderData>();
 
-    console.log(cards);
+    // console.log(cards);
 
     return (
         <section className="text-center pt-8 pb-8">
@@ -43,7 +44,7 @@ export default function TarotDatabase() {
 
                 <div className="p-4 bg-[url('/meshgradbg-duo.png')] bg-cover text-ridercream mx-auto">
                     <h3 className="font-averiaSerifLibre text-2xl">Major Arcana</h3>
-                    <ul className="flex gap-4 flex-wrap">
+                    <ul className="flex gap-4 flex-wrap justify-center">
                         {
                             cards.filter(card => card.type === 'major').map(card => <li>
                                 <CardSmall key={card.name_short} card={card} />
@@ -53,8 +54,10 @@ export default function TarotDatabase() {
 
                     <h3 className="font-averiaSerifLibre text-2xl">Minor Arcana</h3>
 
+                    <DatabaseSection suit="swords" cards={cards.filter(card => card.suit === 'swords')} />
+
                     <h4 className="font-averiaSerifLibre">Swords</h4>
-                    <ul className="flex gap-4 flex-wrap">
+                    <ul className="flex gap-4 flex-wrap justify-center">
                         {
                             cards.filter(card => card.type === 'minor' && card.suit === 'swords').map(card => <li>
                                 <CardSmall key={card.name_short} card={card} />
