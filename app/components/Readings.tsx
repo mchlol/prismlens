@@ -1,10 +1,14 @@
-import ReadingCard from "./ReadingCard"
-import { Link } from "@remix-run/react"
+import ReadingCard from "./ReadingCard";
+import { Link } from "@remix-run/react";
+import Line from "../assets/llline.svg";
 
 export default function Readings() {
     return (
-        <section className="w-full m-4 p-8 mx-auto">
-            <h2 className="text-3xl font-averiaSerifLibre mb-4 text-ridercream">Readings</h2>
+        <section className="w-full m-4 p-8 mx-auto relative">
+
+            <img src={Line} alt="" className="w-64 absolute -top-10 right-0 left-0 mx-auto svg" />
+
+            <h2 className="text-3xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Readings</h2>
 
             <div className="flex flex-wrap gap-4 justify-start">
                 <Link to="/yesno">
