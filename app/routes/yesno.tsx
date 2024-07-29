@@ -1,7 +1,17 @@
 import TarotCard from "~/components/TarotCard";
+import { useState, useEffect } from "react";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
-import { useState } from "react";
+import Reading from "~/components/Reading";
+import HomeButton from "~/components/HomeButton";
+
+interface CardStatusObj {
+    [cardId: string]: {
+        flipped: boolean
+        reversed: boolean
+        name: string
+    },
+}
 
 // type to hold all the properties returned from the api
 type CardObject = {
@@ -23,31 +33,60 @@ type LoaderData = {
 export let loader: LoaderFunction = async () => {
     const response = await fetch(`https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1`);
     const data = await response.json();
-    const card = data.cards[0]; // n number of cards already returns an array, even if n is 1
-    // * could call a second API here?
+    const card = data.cards[0];
     return json<LoaderData>({ card })
 }
 
 export default function YesNo() {
 
     const { card } = useLoaderData<LoaderData>();
+    const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
     const [allCardsFlipped, setAllCardsFlipped] = useState(false); 
-    const [cardsStatus, setCardsStatus] = useState([]);
 
-    function sendData(cardId: string, flipped: boolean, reversed: boolean) {
-        console.log(`Card: ${cardId}, Flipped: ${flipped}, reversed: ${reversed}`);
+    function sendData(cardId: string, flipped: boolean, reversed: boolean, name: string) {
+        setCardStatus( (prevCardStatus) => ({
+            ...prevCardStatus,
+            [cardId]: {
+                flipped,
+                reversed,
+                name
+            }
+        }));
     }
+
+    useEffect( () => {
+        const hasCards = Object.keys(cardStatus).length === 1;
+        const allFlipped = hasCards && Object.values(cardStatus).every(item => item.flipped === true);
+        setAllCardsFlipped(allFlipped);
+    },[cardStatus]);
     
     return (
         <section className="text-center">
-            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Yes or No?</h2>
+            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2">Yes or No</h2>
+            {
+                !allCardsFlipped 
+                && 
+                <div>
+                    <h3 className="font-averiaSerifLibre text-lg">Struggling with a decision?</h3>
+                    <p>Think about your question, then flip the card.</p>
+                </div>
+            }
 
             {
                 card && 
-                <div className="flex flex-row flex-wrap place-content-center gap-4">
+                <div className="flex flex-col flex-wrap items-center justify-center gap-4 text-ridercream">
                     <TarotCard card={card} sendData={sendData}/>
+                    {
+                        allCardsFlipped &&
+                        <Reading 
+                        readingType="yes or no question"
+                        cards={[`${Object.values(cardStatus)[0].name} ${Object.values(cardStatus)[0].reversed ? 'reversed' : 'upright'}`]}
+                        />
+                    }
                 </div>
             }
+
+            <HomeButton />
             
 
         </section>

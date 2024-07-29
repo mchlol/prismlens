@@ -1,22 +1,22 @@
 import LogoFull from "../assets/logo-full.svg";
+import StarCircleOutline from "../assets/starcircle-outline.svg"
 
 export default function Hero() {
     return (
-        <div className="hero p-8 relative">
+        <div className="hero flex justify-center items-center flex-wrap gap-8 h-[calc(100vh-10rem)] relative text-purplegrey overflow-hidden">
 
-            <div className="hero--img-wrap flex gap-8 justify-center">
+            <div className="z-20 p-4">
+               
+                <img src={LogoFull} alt="logo" className=" mb-8 svg" />
 
-                <div className="hero--img__left h-[350px] w-[302px] bg-[url('./assets/prism01.jpg')] bg-cover rounded-tl-lg rounded-tr-lg rounded-bl-lg rounded-br-[150px]"></div>
-
-                <div className="hero--img__right h-[350px] w-[566px] bg-[url('./assets/tarot01.jpg')] bg-cover rounded-tl-[175px] rounded-br-[175px]"></div>
-
+                <div className="hero--text font-averiaSerifLibre text-xl max-w-[500px] text-center mx-auto">
+                    <p>Explore intuitive readings that help you navigate life's challenges and uncover new perspectives.</p>
+                </div>
             </div>
 
-            <div className="hero--logo-wrap z-10 absolute top-1/4 left-1/4">
+            <div className="bg-[url('./assets/hero-bg.jpg')] bg-cover h-[500px] max-w-[600px] absolute left-0 right-0 mx-auto rounded-tr-full rounded-tl-full opacity-80 bordered border-2 border-ridercream"></div>
 
-                <img src={LogoFull} alt="logo" className="w-[500px] max-w-full svg-shadow" />
-
-            </div>
+            <img src={StarCircleOutline} alt="" className="-z-10 absolute -top-50 h-[180%] mx-auto rotate-45 svg-cream" />
 
         </div>
     )

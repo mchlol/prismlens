@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getImgCode } from "~/functions/functions";
 
 interface TarotCardProps {
-    sendData: (cardId: string, flipped: boolean, reversed: boolean) => void
+    sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
     card: {
         desc: string
         meaning_rev: string
@@ -34,7 +34,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
     },[card])
 
     return (
-        <div className="tarot-card-wrapper">
+        <div className="tarot-card-wrapper fade-in-text">
             {
                 card 
                 &&
@@ -43,7 +43,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                     <div className="scene">
                         <div className={`tarot-card ${cardFlipped ? 'tarot-card-flipped' : ''}`} onClick={() => {
                             setCardFlipped(prevCardFlipped => !prevCardFlipped)
-                            sendData(card.name_short, !cardFlipped, cardReversed);
+                            sendData(card.name_short, !cardFlipped, cardReversed, card.name);
                             }
                             }>
                             <div className="card-face card-front">
@@ -55,20 +55,23 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                         </div>
                     </div>
 
+                    <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px] h-[2rem]">
                     {
                         cardFlipped
                         &&
-                        <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px]">
+                            <div>
                             <h3 className="font-averiaSerifLibre text-xl">{card.name} {cardReversed && '(reversed)'}</h3>
-                            <p className="max-w-xl mx-auto p-4 text-sm">
+                            {/* {
+                                <p className="max-w-xl mx-auto p-4 text-sm">
                                 {cardReversed
                                 ? card.meaning_rev
                                 : card.meaning_up}
-                            </p>
-                            
-                        </div>
-                        
+                            </p> 
+                            } */}
+                            </div>
+ 
                     }
+                    </div>
 
                 </div>
 
