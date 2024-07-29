@@ -20,7 +20,7 @@ export default function NavBar() {
                 </Link>
             </div>
             
-            <div className="menu-wrapper relative">
+            <div className="menu-wrapper relative z-50">
                 <button 
                 className="text-purplegrey hover:text-ridercream text-xl"
                 onClick={() => toggleMenu()}
@@ -38,11 +38,11 @@ export default function NavBar() {
                         <li className="hover:text-pink">
                             <Link to="/about">About</Link>
                         </li>
-                        {/* <li className="hover:text-pink">
-                            <Link to="/resources">
-                                Resources
+                        <li className="hover:text-pink">
+                            <Link to="/tarotdatabase">
+                                Tarot Database
                             </Link>
-                        </li> */}
+                        </li>
                     </ul>
                 </div>
             </div>
