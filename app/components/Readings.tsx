@@ -8,7 +8,10 @@ export default function Readings() {
 
             <img src={Line} alt="" className="w-64 absolute -top-10 right-0 left-0 mx-auto svg" />
 
-            <h2 className="text-3xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Readings</h2>
+            <div className="text-ridercream mb-4">
+                <h2 className="text-3xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Readings</h2>
+                <p>Grappling with a difficult decision, or stuck in a rut? Reframe your situation and reveal a fresh perspective.</p>
+            </div>
 
             <div className="flex flex-wrap gap-4 justify-start">
                 <Link to="/yesno">
