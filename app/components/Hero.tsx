@@ -14,7 +14,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="bg-[url('./assets/hero-bg.jpg')] bg-cover h-[500px] max-w-[500px] absolute left-0 right-0 mx-auto rounded-tr-full rounded-tl-full opacity-80 bordered border-2 border-ridercream"></div>
+            <div className="bg-[url('./assets/hero-bg.jpg')] bg-cover h-[500px] max-w-[600px] absolute left-0 right-0 mx-auto rounded-tr-full rounded-tl-full opacity-80 bordered border-2 border-ridercream"></div>
 
             <img src={StarCircleOutline} alt="" className="-z-10 absolute -top-50 h-[180%] mx-auto rotate-45 svg-cream" />
 
