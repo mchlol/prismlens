@@ -1,3 +1,4 @@
+import CardSmall from "./CardSmall"
 
 interface Props {
     suit: string
@@ -14,12 +15,23 @@ interface Props {
     }>
 }
 
-export default function DatabaseSection({cards}: Props) {
-
-    console.log(cards);
-    // ! create a component for each section that renders the cards 
+export default function DatabaseSection({suit, cards}: Props) {
 
     return (
-        <p>Card</p>
+        <div className="m-4">
+            <h4 className="font-averiaSerifLibre text-xl mb-4">
+                {`${suit[0].toUpperCase()}${suit.substring(1)}`}
+            </h4>
+            
+            <ul className="flex gap-4 flex-wrap justify-center mr-8 ml-8">
+                {
+                    cards.filter(card => card.suit === suit).map(card => 
+                    <li key={card.name_short}>
+                        <CardSmall card={card} />
+                    </li>
+                    )
+                }
+            </ul>
+        </div>
     )
 }
