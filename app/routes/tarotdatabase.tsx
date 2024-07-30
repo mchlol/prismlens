@@ -37,25 +37,26 @@ export default function TarotDatabase() {
     return (
         <section className="text-center pt-8 pb-8">
 
-            <div>
+            <div className="database-wrapper mb-4">
                 <div className="section-heading m-8 mx-auto flex flex-col gap-4">
-                    <h2 className="uppercase text-4xl font-averiaSerifLibre text-blueblack">Tarot Database</h2>
-                    <p className="max-w-[50ch] mx-auto">The Tarot deck is made up of 78 cards; 22 Major Arcana, and 56 Minor Arcana split into four suits of 14 cards each.</p>
+                    <h2 className="uppercase text-5xl font-averiaSerifLibre text-blueblack">Tarot Database</h2>
+                    <p className="max-w-[50ch] mx-auto">The Tarot deck is made up of 78 cards; 22 Major Arcana, and 56 Minor Arcana split into four suits of 14 cards each - Ace to Ten, and the court cards: Page, Knight, Queen and King.</p>
                 </div>
 
                 <div className="p-4 bg-[url('/meshgradbg-duo.png')] bg-cover text-ridercream mx-auto">
 
-                    <h3 className="font-averiaSerifLibre text-2xl m-4">Major Arcana</h3>
+                    <div className="max-w-[1240px] mx-auto">
+                        <h3 id="major" className="font-averiaSerifLibre text-3xl m-4">Major Arcana</h3>
+                        <ul className="flex gap-4 flex-wrap justify-center mr-8 ml-8">
+                            {
+                                cards.filter(card => card.type === 'major').map(card => <li key={card.name_short}>
+                                    <CardSmall card={card} />
+                                    </li>)
+                            }
+                        </ul>
+                    </div>
 
-                    <ul className="flex gap-4 flex-wrap justify-center mr-8 ml-8">
-                        {
-                            cards.filter(card => card.type === 'major').map(card => <li key={card.name_short}>
-                                <CardSmall card={card} />
-                                </li>)
-                        }
-                    </ul>
-
-                    <h3 className="font-averiaSerifLibre text-2xl">Minor Arcana</h3>
+                    <h3 id="minor" className="font-averiaSerifLibre text-3xl m-8">Minor Arcana</h3>
 
                     <DatabaseSection suit="swords" cards={cards.filter(card => card.suit === 'swords')} />
 
