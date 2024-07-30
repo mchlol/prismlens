@@ -21,7 +21,7 @@ const CardSmall = ({card}: TarotCardProps) => {
     return (
         <div className="flex flex-col justify-center items-center gap-2 mb-2 max-w-[120px]">
             <img src={imagePath} className="w-full" />
-            <p>{card.name === 'Fortitude' ? 'Strength' : card.name}</p>
+            <p>{card.name === 'Fortitude' ? 'Strength' : card.name === 'The Last Judgment' ? 'Judgement' : card.name}</p>
         </div>
     )
 }
