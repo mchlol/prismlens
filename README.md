@@ -4,7 +4,7 @@ I always wanted to build a tarot reading app.
 
 ## Tools
 
-Remix, React, Vite
+Remix, React, TypeScript, TailwindCSS, Vite
 
 ## Image Credits
 
