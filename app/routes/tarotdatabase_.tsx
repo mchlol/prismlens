@@ -1,9 +1,9 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
-import { useEffect, useState } from "react";
 import HomeButton from "~/components/HomeButton";
 import CardSmall from "~/components/CardSmall";
 import DatabaseSection from "~/components/DatabaseSection";
+import { Outlet } from "@remix-run/react";
 
 type CardObject = {
     desc: string
@@ -36,6 +36,7 @@ export default function TarotDatabase() {
 
     return (
         <section className="text-center pt-8 pb-8">
+            <Outlet />
 
             <div className="database-wrapper mb-4">
                 <div className="section-heading m-8 mx-auto flex flex-col gap-4">
