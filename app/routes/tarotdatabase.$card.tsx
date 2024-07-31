@@ -3,6 +3,7 @@ import { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getImgCode } from "~/functions/functions";
+import { Link } from "@remix-run/react";
 
 
 type CardObject = {
@@ -45,9 +46,12 @@ export default function Card() {
 
     return (
         <section className="max-w-[1000px] mx-auto text-ridercream">
-            <h1 className="font-averiaSerifLibre text-3xl text-purplegrey text-center">
-                {card.name}
-            </h1>
+            <div className="text-purplegrey text-center">
+                <span className="text-center font-averiaSerifLibre text-3xl">{card.type === 'major' ? 'Major Arcana' : 'Minor Arcana'}</span>
+                <h1 className="font-averiaSerifLibre text-6xl">
+                    {card.name}
+                </h1>
+            </div>
 
             <div className="grid grid-flow-col-dense p-8">
                 <img src={imagePath} alt={card.name} className="max-w-[300px]"/>
@@ -62,6 +66,13 @@ export default function Card() {
                     <p className="">{card.desc}</p>
                 </div>
             </div>
+
+        <div className="mx-auto text-center">
+            <Link to="/tarotdatabase">
+                <button className="bg-pink p-2 rounded-lg mb-4 mt-4 text-purplegrey hover:bg-ridercream transition ease-in-out">Back</button>
+            </Link>
+        </div>
+
         </section>
     )
 }
