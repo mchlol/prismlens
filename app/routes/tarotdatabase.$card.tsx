@@ -4,9 +4,8 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 
-type LoaderData = {
-    card: {
-        desc: string
+type CardObject = {
+    desc: string
     meaning_rev: string
     meaning_up: string
     name: string
@@ -15,14 +14,17 @@ type LoaderData = {
     type: string
     value: string
     value_int: number
-    }
+}
+
+type LoaderData = {
+    cards: Array<CardObject>
 }
 
 export let loader: LoaderFunction = async ({params}: LoaderFunctionArgs) => {
     const response = await fetch(`https://tarotapi.dev/api/v1/cards/search?q=${params.card}`);
     const data = await response.json();
-    const card = data.card; 
-    return json<LoaderData>({ card })
+    const cards = data.cards; 
+    return json<LoaderData>({ cards })
 }
 
 // export const loader = async ({
@@ -35,11 +37,11 @@ export let loader: LoaderFunction = async ({params}: LoaderFunctionArgs) => {
 
 export default function Card() {
 
-    const tarotCard = useLoaderData<typeof loader>();
+    const card = useLoaderData<typeof loader>().cards[0];
 
-    console.log(tarotCard);
+    console.log('tarotCard: ',card);
 
     return (
-        <h1>Test</h1>
+        <h1>{card.name}</h1>
     )
 }
