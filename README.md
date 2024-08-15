@@ -2,9 +2,11 @@
 
 I always wanted to build a tarot reading app.
 
+Baby's first Remix & first TypeScript project.
+
 ## Tools
 
-Remix, React, TypeScript, TailwindCSS, Vite
+Remix, React, TypeScript, TailwindCSS, Vite, OpenAI, Cloudflare Workers
 
 ## Image Credits
 
