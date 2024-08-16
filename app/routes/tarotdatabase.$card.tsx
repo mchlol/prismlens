@@ -41,7 +41,7 @@ export default function Card() {
 
             <div className="img-wrapper relative">
                 <img src={StarCircleOutline} className="-z-10 absolute -top-32 right-2 opacity-50 svg-cream max-w-[80%]" alt="" />
-                </div>
+            </div>
 
             <div className="text-purplegrey text-center m-8">
                 <span className="text-center font-averiaSerifLibre text-xl md:text-3xl transition-all">{card.type === 'major' ? 'Major Arcana' : 'Minor Arcana'}</span>
