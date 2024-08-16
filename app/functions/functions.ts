@@ -26,8 +26,13 @@ function getImgCode(card: string) {
     return code;
 }
 
+function renameCard(cardName: string) {
+    return cardName === 'Fortitude' ? 'Strength' : cardName === 'The Last Judgment' ? 'Judgement' : cardName;
+}
+
 export {
-    getImgCode
+    getImgCode,
+    renameCard
 }
 
 // ai

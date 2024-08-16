@@ -65,7 +65,7 @@ export default function ThreeCards() {
 
     return (
         <section className="text-center pt-8 pb-8">
-            <h2 className="uppercase text-4xl font-averiaSerifLibre text-blueblack">Past, Present, Future</h2>
+            <h2 className="uppercase text-4xl font-averiaSerifLibre text-purplegrey">Past, Present, Future</h2>
 
             {
                 cards 

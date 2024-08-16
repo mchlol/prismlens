@@ -8,8 +8,6 @@ interface AppProps {
 
 const Reading = ({readingType, cards}: AppProps) => {
 
-    // reading type will be a string e.g. 'yes or no question'
-    // cards should be an array of strings e.g. ['The Empress upright', 'Ace of Cups reversed', 'Nine of Swords upright'];
 
     const [report, setReport] = useState('');
     const [loading, setLoading] = useState(true);
@@ -28,12 +26,11 @@ const Reading = ({readingType, cards}: AppProps) => {
         }
     };
     
-    // useEffect( () => {
-    //     getReport();
-    //     console.log(report);
-    // },[cards]);
+    useEffect( () => {
+        // ? is this in the right place?
+        getReport();
+    },[cards]);
 
-    console.log('Reading props: ', readingType, cards);
 
 
     return (
