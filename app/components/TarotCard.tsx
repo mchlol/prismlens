@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getImgCode } from "~/functions/functions";
+import { getImgCode, renameCard } from "~/functions/functions";
+import { Link } from "@remix-run/react";
 
 interface TarotCardProps {
     sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
@@ -50,24 +51,21 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                                 <img src="/cards/back.jpg" alt="back of the Rider-Waite-Smith tarot deck" />
                             </div>
                             <div className="card-face card-back">
-                                <img src={imagePath} alt={card.name} className={`${cardReversed && 'reversed'}`}/>
+                                <img src={imagePath} alt={renameCard(card.name)} className={`${cardReversed && 'reversed'}`}/>
                             </div>
                         </div>
                     </div>
 
-                    <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px] h-[2rem]">
+                    <div className="fade-in-text flex flex-col gap-2 mb-8 w-[200px]">
                     {
                         cardFlipped
                         &&
                             <div>
-                            <h3 className="font-averiaSerifLibre text-xl">{card.name} {cardReversed && '(reversed)'}</h3>
-                            {/* {
-                                <p className="max-w-xl mx-auto p-4 text-sm">
-                                {cardReversed
-                                ? card.meaning_rev
-                                : card.meaning_up}
-                            </p> 
-                            } */}
+                            <Link to={`/tarotdatabase/${card.name_short}`}
+                            className="text-pink">
+                                <h3 className="font-averiaSerifLibre text-xl">{renameCard(card.name)} {cardReversed && '(reversed)'}</h3>
+                            
+                            </Link>
                             </div>
  
                     }

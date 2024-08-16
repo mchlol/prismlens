@@ -1,4 +1,4 @@
-import { getImgCode } from "~/functions/functions";
+import { getImgCode, renameCard } from "~/functions/functions";
 import { Link } from "@remix-run/react";
 
 interface TarotCardProps {
@@ -22,7 +22,7 @@ const CardSmall = ({card}: TarotCardProps) => {
     return (
         <Link to={`./${card.name_short}`} className="flex flex-col justify-center items-center gap-2 mb-2 max-w-[120px] hover:scale-[1.03] transition ease-in-out">
             <img src={imagePath} className="w-full" />
-            <p>{card.name === 'Fortitude' ? 'Strength' : card.name === 'The Last Judgment' ? 'Judgement' : card.name}</p>
+            <p>{renameCard(card.name)}</p>
         </Link>
     )
 }
