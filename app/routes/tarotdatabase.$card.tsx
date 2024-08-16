@@ -1,10 +1,11 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import { getImgCode } from "~/functions/functions";
 import { Link } from "@remix-run/react";
 import StarCircleOutline from "../assets/starcircle-outline.svg";
+import BackButton from "~/components/BackButton";
 
 type CardObject = {
     desc: string
@@ -31,6 +32,7 @@ export let loader: LoaderFunction = async ({params}: LoaderFunctionArgs) => {
 
 export default function Card() {
 
+    const navigate = useNavigate();
     const card = useLoaderData<typeof loader>().cards[0];
     const imagePath = `/cards/${getImgCode(card.name_short)}.jpg`;
 
@@ -38,19 +40,21 @@ export default function Card() {
         <section className="max-w-[1000px] mx-auto relative">
 
             <div className="img-wrapper relative">
-                <img src={StarCircleOutline} className="-z-10 absolute -top-32 right-2 opacity-50 svg-cream" alt="" />
+                <img src={StarCircleOutline} className="-z-10 absolute -top-32 right-2 opacity-50 svg-cream max-w-[80%]" alt="" />
                 </div>
 
             <div className="text-purplegrey text-center m-8">
-                <span className="text-center font-averiaSerifLibre text-3xl">{card.type === 'major' ? 'Major Arcana' : 'Minor Arcana'}</span>
-                <h1 className="font-averiaSerifLibre text-6xl">
+                <span className="text-center font-averiaSerifLibre text-xl md:text-3xl transition-all">{card.type === 'major' ? 'Major Arcana' : 'Minor Arcana'}</span>
+                <h1 className="font-averiaSerifLibre text-3xl md:text-6xl [text-shadow:_1px_1px_20px_antiquewhite] transition-all">
                     {card.name}
                 </h1>
             </div>
 
-            <div className="grid grid-flow-col-dense p-8 bg-ridercream text-purplegrey border-2 border-purplegrey m-4 mb-8">
+            <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 p-4 md:p-8 bg-ridercream text-purplegrey border-2 border-purplegrey m-4 mb-8">
                    
-                <img src={imagePath} alt={card.name} className="max-w-[300px]"/>
+                <div className="object-fit  max-w-[250px] mx-auto">
+                    <img src={imagePath} alt={card.name} className="w-full"/>
+                </div>
 
                 <div className="card-info pl-4 max-w-[75ch]">
 
@@ -67,9 +71,7 @@ export default function Card() {
             </div>
 
         <div className="mx-auto text-center mb-8">
-            <Link to="/tarotdatabase">
-                <button className="bg-pink p-2 rounded-lg mb-4 mt-4 text-purplegrey hover:bg-ridercream transition ease-in-out">Back</button>
-            </Link>
+            <BackButton />
         </div>
 
         </section>
