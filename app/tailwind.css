@@ -87,7 +87,7 @@ html, body {
     100% { opacity: 1; }
 }
 
-.animate-spin {
+.animate-spin-menu {
     animation: spin 1s linear;
     animation-duration: 250ms;
 }

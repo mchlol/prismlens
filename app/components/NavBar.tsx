@@ -28,9 +28,9 @@ export default function NavBar() {
                     {
                         menuOpen
                         ? 
-                            <MdClose className="animate-spin"/>
+                            <MdClose className="animate-spin-menu"/>
                         :
-                            <MdMenu className="animate-spin"/>
+                            <MdMenu className="animate-spin-menu"/>
                     }
                     </button>
                 <div className={`absolute right-0 top-12 ${menuOpen ? 'opacity-1' : 'opacity-0'} transition ease-in-out`}>
