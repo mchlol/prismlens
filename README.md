@@ -22,10 +22,12 @@ Remix, React, TypeScript, TailwindCSS, Vite, OpenAI, Cloudflare Workers
 - [OpenAI](https://openai.com/)
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
 - [Labyrinthos Tarot](https://labyrinthos.co/blogs/tarot-card-meanings-list)
+- [Marigold Tarot (the deck I use)](https://13thpress.com/collections/decks-books/products/copy-of-the-marigold-tarot-gilded-gold)
 - [Swapping Fill Color on Image Tag SVGs](https://blog.union.io/code/2017/08/10/img-svg-fill/)
 - [CSS Filter Generator CodePen](https://codepen.io/sosuke/pen/Pjoqqp?__cf_chl_jschl_tk__=ecc0b72797ae71bc009d6322e3e470773936b386-1604211766-0-ASpz720gXnc6Ej0vzlgY9-KLmlPkldgcOx1wAmGTUCjLZLOxkArNxpRzZ9m8woL-NGmP9LBGVPws8UxMJZrR7O1qFH6QkKtrGVPw6StRnXiK1XTQR_nY905r0XobAG2nOmyC6Zq8mdyPDp1MyHD7JLodJUXCRViXhtmLmRVE_-JGarVJRlxs6k3DzAOQQEJewfp00DjhlD0mxr8ZKpk2yq6IPTZZQ52XYxh26FC5MxLHhs7LuAwhtolmDZyp4_IuwRg8I5m-2--MmvGE8CCqjRWrkE85zgkMXPlOqcZtppRpZhn6Uz9DZAuKheHwVBb0ySIhFYG92bvQOgiKX0TTswB1SHgOLIeqktuyUaAgxI_h)
 - [Remix: Dynamic routes and nested routes](https://thevalleyofcode.com/remix/7-dynamic-routes-and-nested-routes)
 
 ## Todo
 
-- It would be nice for the user to save the state of their cards and reading on the reading page unless they want to reset it (eg if they get a yes/no reading, then go to the card info page and then back to the reading, it should still be there).
+- It would be nice for the user to save the state of their cards and reading on the reading page unless they want to reset it. E.g. if they get a yes/no reading, then go to the card info page and then back to the reading, both cards and reading should still be there instead of generating a new set.
+- Set up click outside for menu button so it doesn't have to be closed manually.
