@@ -15,7 +15,7 @@ export default function ReadingCard({children, imgPosition, rotate}: Props) {
         position = 'top-[-150px] -right-[150px]'
     } 
     return (
-        <div className="w-64 p-8 h-80 rounded-tr-[125px] text-ridercream bg-[url('/meshgradbg-duo.png')] bg-cover hover:scale-[1.03] transition ease-in-out relative overflow-hidden shadow-sm">
+        <div className="w-52 md:w-64 flex-1 p-8 h-80 rounded-tr-[125px] text-ridercream bg-[url('/meshgradbg-duo.png')] bg-cover hover:scale-[1.03] transition ease-in-out relative overflow-hidden shadow-sm">
             <div className={`reading-card__img absolute ${position} rotate-[${rotate}] blur-[2px]`}>
                 <img src={StarCircleOutline} alt="" />
             </div>
