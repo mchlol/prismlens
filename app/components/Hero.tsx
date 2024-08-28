@@ -3,7 +3,7 @@ import StarCircleOutline from "../assets/starcircle-outline.svg"
 
 export default function Hero() {
     return (
-        <div className="hero flex justify-center items-center flex-wrap gap-8 h-[calc(100vh-10rem)] relative text-purplegrey overflow-hidden">
+        <div className="hero flex justify-center items-center flex-wrap gap-8 h-[calc(100vh-10rem)] relative text-purplegrey overflow-hidden ml-4 mr-4">
 
             <div className="z-20 p-4">
                
