@@ -17,7 +17,7 @@ export default function NavBar() {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
             // make sure ref is not null 
             if (ref && ref.current) {
-                // if menu is open, but the click event happens anywhere BUT the menu, the menu will close
+                // if menu is open, but the click event happens anywhere BUT the ref (menu wrapper), the menu will close
                 if (!ref.current.contains(event.target as Node) && menuOpen) {
                 setMenuOpen(false);
                 }
