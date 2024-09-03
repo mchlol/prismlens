@@ -37,3 +37,4 @@ Remix, React, TypeScript, TailwindCSS, Vite, OpenAI, Cloudflare Workers
 - Add content to the about section and then add that to the home page
 - Save the state of the users cards and reading on the reading page unless they want to reset it. E.g. if they get a yes/no reading, then go to the card info page and then back to the reading, both cards and reading should still be there instead of generating a new set.
 - Allow users to save their readings to a log
+- Add search functionality to database
