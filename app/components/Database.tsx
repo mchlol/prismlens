@@ -37,7 +37,7 @@ export default function Database(props: CardsArr) {
             </div>
 
             <div className="database-container flex relative bg-[url('/meshgradbg-duo.png')] bg-cover text-ridercream">
-                <div className="sticky top-4 p-4 h-[calc(100vh-2rem)] overflow-auto w-48 mt-4 ml-4 mr-4">
+                <div className="sticky top-16 p-4 h-[calc(100vh-2rem)] overflow-auto w-48 mt-4 ml-4 mr-4">
                     <h2>Jump to:</h2>
                     <ul className="space-y-2">
                         <li>

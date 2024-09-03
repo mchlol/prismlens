@@ -20,7 +20,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter flex flex-col justify-between min-h-[100vh] max-w-[1200px] mx-auto leading-relaxed text-blueblack grad-serenity">
+      <body className="mt-[6rem] font-inter flex flex-col justify-between min-h-[100vh] max-w-[1240px] mx-auto leading-relaxed text-blueblack grad-serenity">
         <NavBar />
         <main className="min-h-[calc(100vh-8rem)]">
           {children}
