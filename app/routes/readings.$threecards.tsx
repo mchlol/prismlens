@@ -3,7 +3,7 @@ import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import Reading from "~/components/Reading";
-import HomeButton from "~/components/HomeButton";
+import BackButton from "~/components/BackButton";
 
 // defining cardId type like this means the object can have any number of properties matching this shape
 interface CardStatusObj {
@@ -103,7 +103,7 @@ export default function ThreeCards() {
                     <p className="text-ridercream">Flip all the cards to get your reading.</p>
             }
 
-            <HomeButton />
+            <BackButton />
             
 
         </section>

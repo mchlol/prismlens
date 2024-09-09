@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 import Reading from "~/components/Reading";
-import HomeButton from "~/components/HomeButton";
+import BackButton from "~/components/BackButton";
 
 interface CardStatusObj {
     [cardId: string]: {
@@ -86,7 +86,7 @@ export default function YesNo() {
                 </div>
             }
 
-            <HomeButton />
+            <BackButton />
             
 
         </section>

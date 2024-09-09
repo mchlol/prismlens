@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import Hero from "~/components/Hero";
-import Readings from "~/components/Readings";
+import ReadingsPreview from "~/components/ReadingsPreview";
 import DatabasePreview from "~/components/DatabasePreview";
 
 
@@ -15,7 +15,7 @@ export default function Index() {
   return (
     <div className="w-full">
       <Hero />
-      <Readings />
+      <ReadingsPreview />
       <DatabasePreview />
     </div>
   );
