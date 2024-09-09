@@ -1,6 +1,6 @@
 # PrismLens
 
-I always wanted to build a tarot reading app. I started working through the [Scrimba AI Engineer Path](https://v2.scrimba.com/the-ai-engineer-path-c02v) and decided to use some of what I learned to create something of my own.
+I always wanted to build a tarot reading app. An extremely simplified starting version can be seen [here](https://mchlol-tarot.netlify.app/). Later, I started working through the [Scrimba AI Engineer Path](https://v2.scrimba.com/the-ai-engineer-path-c02v) and decided to use some of what I learned to create something of my own.
 
 I used the [Tarot API](https://tarotapi.dev/) to get the initial data about all the cards, and the [suggested source for images](https://www.sacred-texts.com/tarot/xr/index.htm).  
 I looked all over Dribbble, Behance and the like to research ideas on presentation, and created a moodboard, wireframes and a mini style guide in Figma (link to come).  
@@ -31,10 +31,3 @@ Remix, React, TypeScript, TailwindCSS, Vite, OpenAI, Cloudflare Workers
 - [CSS Filter Generator CodePen](https://codepen.io/sosuke/pen/Pjoqqp?__cf_chl_jschl_tk__=ecc0b72797ae71bc009d6322e3e470773936b386-1604211766-0-ASpz720gXnc6Ej0vzlgY9-KLmlPkldgcOx1wAmGTUCjLZLOxkArNxpRzZ9m8woL-NGmP9LBGVPws8UxMJZrR7O1qFH6QkKtrGVPw6StRnXiK1XTQR_nY905r0XobAG2nOmyC6Zq8mdyPDp1MyHD7JLodJUXCRViXhtmLmRVE_-JGarVJRlxs6k3DzAOQQEJewfp00DjhlD0mxr8ZKpk2yq6IPTZZQ52XYxh26FC5MxLHhs7LuAwhtolmDZyp4_IuwRg8I5m-2--MmvGE8CCqjRWrkE85zgkMXPlOqcZtppRpZhn6Uz9DZAuKheHwVBb0ySIhFYG92bvQOgiKX0TTswB1SHgOLIeqktuyUaAgxI_h)
 - [Remix: Dynamic routes and nested routes](https://thevalleyofcode.com/remix/7-dynamic-routes-and-nested-routes)
 - [How to Handle Outside Clicks in React with TypeScript](https://dev.to/rashed_iqbal/how-to-handle-outside-clicks-in-react-with-typescript-4lmc)
-
-## Todo
-
-- Add content to the about section and then add that to the home page
-- Save the state of the users cards and reading on the reading page unless they want to reset it. E.g. if they get a yes/no reading, then go to the card info page and then back to the reading, both cards and reading should still be there instead of generating a new set.
-- Allow users to save their readings to a log
-- Add search functionality to database
