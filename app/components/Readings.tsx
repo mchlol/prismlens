@@ -1,4 +1,4 @@
-import ReadingCard from "./ReadingCard";
+import ReadingPreviewCard from "./ReadingPreviewCard";
 import { Link } from "@remix-run/react";
 import Line from "../assets/llline.svg";
 
@@ -15,14 +15,20 @@ export default function Readings() {
 
             <div className="flex flex-wrap gap-4 justify-start">
                 <Link to="readings/yesno">
-                    <ReadingCard imgPosition="tl" rotate="90deg">
+                    <ReadingPreviewCard imgPosition="tl" rotate="90deg">
                         Answer a <em>yes or no</em> question
-                        </ReadingCard>
+                    </ReadingPreviewCard>
                 </Link>
                 <Link to="readings/threecards">
-                    <ReadingCard imgPosition="tr" rotate="45deg">Look into your <em>past present and future</em></ReadingCard>
+                    <ReadingPreviewCard imgPosition="tr" rotate="45deg">
+                        Look into your <em>past present and future</em>
+                    </ReadingPreviewCard>
                 </Link>
             </div>
+
+            <Link to="/readings">
+                <button className="bg-pink p-2 rounded-lg mb-4 mt-4 text-purplegrey hover:bg-ridercream transition-all duration-200 ease-in-out">View all</button>
+            </Link>
 
 
         </section>

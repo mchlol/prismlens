@@ -6,7 +6,7 @@ type Props = {
     rotate: string
 }
 
-export default function ReadingCard({children, imgPosition, rotate}: Props) {
+export default function ReadingPreviewCard({children, imgPosition, rotate}: Props) {
 
     let position = '';
     if (imgPosition === 'tl') {
