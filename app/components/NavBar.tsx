@@ -28,18 +28,18 @@ export default function NavBar() {
     },[ref, menuOpen])
 
     return (
-        <div className="fixed top-0 z-30 w-full max-w-[1240px]">
+        <div className="w-full max-w-[1240px] mx-auto">
             <nav className="flex flex-wrap justify-between items-center p-8 h-20">
                 <div>
-                    <Link to="/" className="flex items-end gap-1">
-                        <h1 className="font-averiaSerifLibre text-purplegrey text-xl">PrismLens</h1>
-                        <img src={Logo} alt="logo" className="max-w-6 svg" />
+                    <Link to="/" className="flex items-start gap-1 ">
+                        <h1 className="font-averiaSerifLibre text-ridercream text-xl">PrismLens</h1>
+                        <img src={Logo} alt="logo" className="max-w-6 svg-cream" />
                     </Link>
                 </div>
                 {/* the ref is attached to the menu wrapper */}
                 <div ref={ref} className="menu-wrapper relative z-50">
                     <button 
-                    className="text-purplegrey text-lg hover:scale-110"
+                    className="text-ridercream text-lg hover:scale-110"
                     onClick={() => toggleMenu()}
                     >
                         {
