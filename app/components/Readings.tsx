@@ -14,12 +14,12 @@ export default function Readings() {
             </div>
 
             <div className="flex flex-wrap gap-4 justify-start">
-                <Link to="/yesno">
+                <Link to="readings/yesno">
                     <ReadingCard imgPosition="tl" rotate="90deg">
                         Answer a <em>yes or no</em> question
                         </ReadingCard>
                 </Link>
-                <Link to="/threecards">
+                <Link to="readings/threecards">
                     <ReadingCard imgPosition="tr" rotate="45deg">Look into your <em>past present and future</em></ReadingCard>
                 </Link>
             </div>
