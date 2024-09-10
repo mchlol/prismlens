@@ -2,7 +2,7 @@ import ReadingPreviewCard from "./ReadingPreviewCard";
 import { Link } from "@remix-run/react";
 import Line from "../assets/llline.svg";
 
-export default function Readings() {
+export default function ReadingsPreview() {
     return (
         <section className="w-full m-4 p-8 mx-auto relative">
 
