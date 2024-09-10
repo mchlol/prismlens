@@ -29,6 +29,7 @@ html, body {
 .blurnav {
     background: rgba(66, 64, 111, 0.7);
     backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(66, 64, 111, 0.7);
 }
 
 /* card flip */
