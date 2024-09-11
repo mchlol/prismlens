@@ -7,20 +7,20 @@ type Props = {
     rotate: string
 }
 
-export default function DatabasePreviewCard(props: Props) {
+export default function DatabasePreviewCard({code, rotate}: Props) {
 
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <Link to={`/tarotdatabase/${props.code}`}>
+        <Link to={`/tarotdatabase/${code}`}>
             <img 
-            src={`./cards/${getImgCode(props.code)}.jpg`} 
+            src={`./cards/${getImgCode(code)}.jpg`} 
             alt='tarot card' 
             className={`db-preview-card transition-all duration-[400ms] max-w-[200px] min-w-[150px] rounded-lg`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{ 
-                transform: isHovered ? 'none' : `rotate(${props.rotate})`, 
+                transform: isHovered ? 'none' : `rotate(${rotate})`, 
                 transition: 'transform 400ms ease-in-out'
                 }}
             />
