@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 import { Link } from "@remix-run/react";
 import { MdMenu, MdClose } from "react-icons/md";
 

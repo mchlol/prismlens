@@ -1,4 +1,4 @@
-import MBLogo from '../assets/mblogo.svg';
+import MBLogo from '../../assets/mblogo.svg';
 
 
 export default function Footer() {
