@@ -5,7 +5,6 @@ import { MdMenu, MdClose } from "react-icons/md";
 
 export default function NavBar() {
 
-    // type of element must be a div
     const ref = useRef<HTMLDivElement | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,9 +14,7 @@ export default function NavBar() {
 
     useEffect( () => {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-            // make sure ref is not null 
             if (ref && ref.current) {
-                // if menu is open, but the click event happens anywhere BUT the ref (menu wrapper), the menu will close
                 if (!ref.current.contains(event.target as Node) && menuOpen) {
                 setMenuOpen(false);
                 }
@@ -53,8 +50,11 @@ export default function NavBar() {
 
                     <div className={`absolute right-0 top-8 ${menuOpen ? 'opacity-1' : 'opacity-0'} duration-500 transition ease-in-out`}>
                         <ul className="flex flex-col text-right gap-4 font-averiaSerifLibre text-sm text-ridercream bg-blueblack p-4 opacity-90 rounded-xl">
-                        <li className="hover:text-pink">
+                            <li className="hover:text-pink">
                                 <Link to="/">Home</Link>
+                            </li>
+                            <li className="hover:text-pink">
+                                <Link to="/readings">Readings</Link>
                             </li>
                             <li className="hover:text-pink">
                                 <Link to="/about">About</Link>
