@@ -1,7 +1,7 @@
 import TarotCard from "~/components/TarotCard";
+import { useEffect, useState } from "react";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
-import { useEffect, useState } from "react";
 import Reading from "~/components/Reading";
 import BackButton from "~/components/BackButton";
 
