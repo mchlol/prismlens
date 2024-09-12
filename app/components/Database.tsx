@@ -31,13 +31,19 @@ export default function Database(props: CardsArr) {
                 <img src={StarCircleOutline} className="-z-10 absolute -top-32 right-2 opacity-50 svg-cream max-w-[80%]" alt="" />
             </div>
 
-            <div className="section-heading m-8 mx-auto flex flex-col gap-4 p-4">
+            <div className="section-heading mb-4 mx-auto flex flex-col gap-4 p-4">
                 <h2 className="uppercase text-3xl md:text-5xl font-averiaSerifLibre text-purplegrey">Tarot Database</h2>
-                <p className="max-w-[50ch] mx-auto">The Tarot deck is made up of 78 cards; 22 Major Arcana, and 56 Minor Arcana split into four suits of 14 cards each - Ace to Ten, and the court cards: Page, Knight, Queen and King.</p>
+                <p className="max-w-[80ch] mx-auto">
+                    Tarot cards are a set of 78 cards used for self-reflection, and spiritual guidance. The cards originated in 15th-century Europe as a playing card game called "tarocchi." By the 18th century, they began to be used for spiritual purposes, with occultists assigning deeper meanings to the cards' imagery. <br />
+                    Each card features symbolic imagery and meanings, divided into the Major Arcana, which represents significant life events and spiritual lessons, and the Minor Arcana, which focuses on day-to-day experiences and challenges.
+                </p>
+                <p className="max-w-[55ch] mx-auto">
+                The <a href="https://en.wikipedia.org/wiki/Rider%E2%80%93Waite_Tarot" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 text-purplegrey">Rider-Waite-Smith Tarot</a> is one of the most popular and widely used tarot decks, first published in 1909.
+                </p>
             </div>
 
             <div className="database-container flex relative bg-[url('/meshgradbg-duo.png')] bg-cover text-ridercream">
-                <div className="sticky top-16 p-4 h-[calc(100vh-2rem)] overflow-auto w-48 mt-4 ml-4 mr-4">
+                <div className="sticky top-20 p-4 h-[calc(100vh-2rem)] overflow-auto w-48 mt-4 ml-4 mr-4">
                     <h2>Jump to:</h2>
                     <ul className="space-y-2">
                         <li>
