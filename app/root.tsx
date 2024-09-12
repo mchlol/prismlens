@@ -20,7 +20,7 @@ export default function App() {
       <Meta />
       <Links />
     </head>
-    <body className="mt-[6rem] font-inter flex flex-col justify-between min-h-[100vh] max-w-[1240px] mx-auto leading-relaxed text-blueblack grad-serenity">
+    <body className="pt-[6rem] font-inter flex flex-col justify-between min-h-[100vh] max-w-[1240px] mx-auto leading-relaxed text-blueblack grad-serenity">
       <div className="w-full bg-purplegrey fixed top-0 left-0 z-30 blurnav">
         <NavBar />
       </div>
