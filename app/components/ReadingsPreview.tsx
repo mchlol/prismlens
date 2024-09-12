@@ -19,7 +19,7 @@ export default function ReadingsPreview() {
                         Answer a <em>yes or no</em> question
                     </ReadingPreviewCard>
                 </Link>
-                <Link to="readings/threecards">
+                <Link to="readings/pastpresentfuture">
                     <ReadingPreviewCard imgPosition="tr" rotate="45deg">
                         Look into your <em>past present and future</em>
                     </ReadingPreviewCard>
