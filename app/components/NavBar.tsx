@@ -57,9 +57,6 @@ export default function NavBar() {
                                 <Link to="/readings">Readings</Link>
                             </li>
                             <li className="hover:text-pink">
-                                <Link to="/about">About</Link>
-                            </li>
-                            <li className="hover:text-pink">
                                 <Link to="/tarotdatabase">
                                     Tarot Database
                                 </Link>
