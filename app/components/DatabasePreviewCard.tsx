@@ -16,7 +16,7 @@ export default function DatabasePreviewCard({code, rotate}: Props) {
             <img 
             src={`./cards/${getImgCode(code)}.jpg`} 
             alt='tarot card' 
-            className={`db-preview-card transition-all duration-[400ms] max-w-[200px] min-w-[150px] rounded-lg`}
+            className={`db-preview-card transition-all duration-[400ms] max-w-[75px] md:max-w-[200px] rounded-lg`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             style={{ 
