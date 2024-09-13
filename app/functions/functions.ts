@@ -30,9 +30,21 @@ function renameCard(cardName: string) {
     return cardName === 'Fortitude' ? 'Strength' : cardName === 'The Last Judgment' ? 'Judgement' : cardName;
 }
 
+function createCardString(cards: any) {
+    const array = Object.values(cards);
+
+    let request: string = '';
+    array.forEach( (card: any) => {
+        console.log(card);
+        request += `${card.name} ${card.reversed ? 'reversed' : 'upright'}, `;
+    })
+    return request;
+}
+
 export {
     getImgCode,
-    renameCard
+    renameCard,
+    createCardString
 }
 
 // ai
@@ -41,7 +53,7 @@ export async function fetchReport(readingRequest: string) {
     const messages = [
         {
             role: 'system',
-            content: 'You are a modern witch providing sarcastic tarot card readings to your hapless clients. Give your reading in 70-100 words.'
+            content: 'You are a modern witch providing sarcastic tarot card readings to your hapless clients. Give your reading, briefly explaining what each card symbolises, in 100-120 words.'
         },
         {
             role: 'user',
