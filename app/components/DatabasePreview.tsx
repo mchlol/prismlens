@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import Line from "../assets/llline.svg";
 import { getImgCode } from "~/functions/functions";
 import DatabasePreviewCard from "./DatabasePreviewCard";
 
@@ -7,9 +6,7 @@ export default function DatabasePreview() {
 
 
     return (
-        <section className="w-full m-4 p-8 mx-auto relative">
-
-            <img src={Line} alt="" className="w-64 absolute -top-10 right-0 left-0 mx-auto svg" />
+        <section className="w-full p-8 mx-auto relative">
 
             <div className="text-ridercream mb-4">
                 <h2 className="text-3xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Database</h2>
