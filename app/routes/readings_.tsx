@@ -4,7 +4,7 @@ import BackButton from "~/components/BackButton"
 
 export default function ReadingsPage() {
     return (
-        <section className="text-center pt-8 pb-8">
+        <section className="text-center pb-8">
 
             <div className="section-heading p-8">
                 <h2 className="uppercase text-3xl md:text-5xl mt-4 font-averiaSerifLibre mb-4 text-purplegrey">Readings</h2>
