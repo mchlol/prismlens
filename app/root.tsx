@@ -24,7 +24,7 @@ export default function App() {
       <div className="w-full bg-purplegrey fixed top-0 left-0 z-30 blurnav">
         <NavBar />
       </div>
-      <main className="min-h-[calc(100vh-8rem)]">
+      <main className="min-h-[calc(100vh-10rem)]">
         <Outlet />
       </main>
       <Footer />
