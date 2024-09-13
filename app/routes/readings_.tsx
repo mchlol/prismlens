@@ -15,13 +15,23 @@ export default function ReadingsPage() {
             
             <div className="flex flex-wrap gap-4 justify-start m-8">
                 <Link to="./yesno">
-                    <ReadingPreviewCard imgPosition="tl" rotate="90deg">
+                    <ReadingPreviewCard imgPosition="br" rotate="90">
                         Answer a <em>yes or no</em> question
                     </ReadingPreviewCard>
                 </Link>
                 <Link to="./threecards">
-                    <ReadingPreviewCard imgPosition="tr" rotate="45deg">
+                    <ReadingPreviewCard imgPosition="tr" rotate="90">
                         Look into your <em>past present and future</em>
+                    </ReadingPreviewCard>
+                </Link>
+                <Link to="./dreams">
+                    <ReadingPreviewCard imgPosition="tl" rotate="45">
+                        Analyse and interpret a <em>recent dream</em>
+                    </ReadingPreviewCard>
+                </Link>
+                <Link to="./relationship">
+                    <ReadingPreviewCard imgPosition="bl" rotate="45">
+                        Gain insight into a <em>relationship</em>
                     </ReadingPreviewCard>
                 </Link>
             </div>
