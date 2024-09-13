@@ -35,7 +35,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
     },[card])
 
     return (
-        <div className="tarot-card-wrapper fade-in-text">
+        <div className={`tarot-card-wrapper fade-in-text ${cardFlipped ? 'transition-all hover:scale-105': ''}`}>
             {
                 card 
                 &&
