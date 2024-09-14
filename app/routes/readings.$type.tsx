@@ -39,7 +39,6 @@ export let loader: LoaderFunction = async ({params}: LoaderFunctionArgs) => {
 export default function GetTarotCards() {
 
     const params = useParams();
-    console.log(params)
     const { cards, numOfCards } = useLoaderData<LoaderData>();
 
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
@@ -75,7 +74,9 @@ export default function GetTarotCards() {
                                 <img
                                 src="/dalle-portrait-2 copy.png"
                                 alt="A gen-z witch with e-girl style, holding the tarot card 'the star'."
-                                className="w-2/3 mx-auto rounded-3xl -hue-rotate-30"
+                                className="w-2/3 mx-auto rounded-3xl -hue-rotate-30 max-w-full h-auto aspect-video"
+                                width="400"
+                                height="225"
                                 />
                             <p>I'm not in the mood for a  <span className="text-rideryellow">"{params.type}"</span> reading right now.<br />
                             It's not that I don't know how, I just don't want to.</p>
