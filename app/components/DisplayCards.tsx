@@ -42,7 +42,7 @@ export default function DisplayCards(props: Props) {
 
             <div className="m-4">
                 <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{props.subheading}</h3>
-                <p>{props.blurb}</p>
+                <p className="text-ridercream">{props.blurb}</p>
             </div>
 
             {
