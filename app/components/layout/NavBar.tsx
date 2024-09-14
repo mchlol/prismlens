@@ -36,7 +36,7 @@ export default function NavBar() {
                 {/* the ref is attached to the menu wrapper */}
                 <div ref={ref} className="menu-wrapper relative z-50">
                     <button 
-                    className="text-ridercream text-lg hover:scale-110"
+                    className="hover:scale-110"
                     onClick={() => toggleMenu()}
                     >
                         {
@@ -48,7 +48,7 @@ export default function NavBar() {
                         }
                     </button>
 
-                    <div className={`absolute right-0 top-8 ${menuOpen ? 'opacity-1' : 'opacity-0'} duration-500 transition ease-in-out`}>
+                    <div className={`absolute right-0 top-11 ${menuOpen ? 'opacity-1' : 'opacity-0'} duration-500 transition ease-in-out`}>
                         <ul className="flex flex-col text-right gap-4 font-averiaSerifLibre text-sm text-ridercream bg-blueblack p-4 opacity-90 rounded-xl">
                             <li className="hover:text-pink">
                                 <Link to="/">Home</Link>
