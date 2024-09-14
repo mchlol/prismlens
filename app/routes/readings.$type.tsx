@@ -4,6 +4,7 @@ import { useLoaderData, json, useParams } from "@remix-run/react";
 import { CardStatusObj, CardObject } from "~/functions/types";
 import BackButton from "~/components/BackButton";
 import DisplayCards from "~/components/DisplayCards";
+import FallbackReading from "~/components/FallbackReading";
 
 type LoaderData = {
     cards: Array<CardObject>
@@ -69,19 +70,7 @@ export default function GetTarotCards() {
                     subheading="Gain insight into the energies and events shaping your life journey."
                     blurb="Reflect on past influences, understand current situations, and explore potential future outcomes."
                     />
-                    :  <div className="flex flex-col justify-center items-center text-ridercream gap-4 p-8 max-w-[65ch] mx-auto">
-                        <h2 className="text-purplegrey text-2xl md:text-5xl font-averiaSerifLibre">uggghhhhhh....</h2>
-                                <img
-                                src="/dalle-portrait-2 copy.png"
-                                alt="A gen-z witch with e-girl style, holding the tarot card 'the star'."
-                                className="w-2/3 mx-auto rounded-3xl -hue-rotate-30 max-w-full h-auto aspect-video"
-                                width="400"
-                                height="225"
-                                />
-                            <p>I'm not in the mood for a  <span className="text-rideryellow">"{params.type}"</span> reading right now.<br />
-                            It's not that I don't know how, I just don't want to.</p>
-
-                        </div>
+                    :  <FallbackReading type={params.type} />
             }
 
 
