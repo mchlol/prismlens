@@ -8,7 +8,6 @@ interface Props {
 
 const Reading = ({readingType, readingRequest}: Props) => {
 
-    console.log(readingRequest)
 
     const [report, setReport] = useState('');
     const [loading, setLoading] = useState(true);
@@ -23,6 +22,7 @@ const Reading = ({readingType, readingRequest}: Props) => {
             setError(null);
             setLoading(false);
         } catch (err: any) {
+            console.log(err.message);
             setError(err.message);
         }
     };
