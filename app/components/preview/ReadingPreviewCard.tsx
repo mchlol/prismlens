@@ -1,4 +1,4 @@
-import StarCircleOutline from "../assets/starcircle-outline.svg";
+import StarCircleOutline from "../../assets/starcircle-outline.svg";
 
 type Props = {
     children: React.ReactNode

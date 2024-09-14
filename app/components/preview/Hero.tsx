@@ -1,5 +1,5 @@
-import LogoFull from "../assets/logo-full.svg";
-import StarCircleOutline from "../assets/starcircle-outline.svg"
+import LogoFull from "../../assets/logo-full.svg";
+import StarCircleOutline from "../../assets/starcircle-outline.svg"
 
 export default function Hero() {
     return (

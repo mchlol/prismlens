@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import Hero from "~/components/Hero";
+import Hero from "~/components/preview/Hero";
 import ReadingsPreview from "~/components/preview/ReadingsPreview";
 import DatabasePreview from "~/components/preview/DatabasePreview";
 import Line from "../assets/llline.svg";
