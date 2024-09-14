@@ -1,5 +1,6 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
+import { useState, useEffect } from "react";
 import { fetchReport } from "~/functions/functions";
 import HomeButton from "~/components/HomeButton";
 
@@ -26,6 +27,12 @@ export let loader: LoaderFunction = async ({request}) => {
 export default function ReadingReport() {
 
     const { report, type, cardsForReading } = useLoaderData<LoaderData>();
+
+    const [reading, setReading] = useState('');
+
+    useEffect( () => {
+        setReading(report);
+    },[]);
 
     return (
         <section className="text-center text-ridercream m-8">
