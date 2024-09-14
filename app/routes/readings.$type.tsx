@@ -57,7 +57,7 @@ export default function GetTarotCards() {
                 ?
                 <DisplayCards 
                 cards={cards} 
-                heading="Yes or No?" 
+                heading="Yes or No" 
                 subheading="Struggling with a decision?" 
                 blurb="Think about your question, then click the card to flip it."
                 />
