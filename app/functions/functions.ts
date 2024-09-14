@@ -31,14 +31,14 @@ function renameCard(cardName: string) {
 }
 
 function createCardString(cards: any) {
-    const array = Object.values(cards);
+    console.log('cards in function: ',cards);
 
-    let request: string = '';
-    array.forEach( (card: any) => {
-        console.log(card);
-        request += `${card.name} ${card.reversed ? 'reversed' : 'upright'}, `;
-    })
-    return request;
+    const array = Object.values(cards);
+    let names: Array<String> = [];
+    array.forEach( (card: any) => names.push(card.name));
+    const join = names.join(', ');
+    console.log('join in function: ',join);
+    return join;
 }
 
 export {
@@ -50,10 +50,11 @@ export {
 // ai
 
 export async function fetchReport(readingRequest: string) {
+    console.log('reading request in function: ',readingRequest);
     const messages = [
         {
             role: 'system',
-            content: 'You are a modern witch providing sarcastic tarot card readings to your hapless clients. Give your reading, briefly explaining what each card symbolises, in 100-120 words.'
+            content: 'You are a modern witch providing sarcastic tarot card readings to your hapless clients. Give your reading, briefly explaining what each card symbolises, in 100-120 words. If no cards are supplied, let the client know you can\'t provide a reading with no cards.'
         },
         {
             role: 'user',
