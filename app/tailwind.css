@@ -9,6 +9,10 @@ html, body {
     box-sizing: border-box;
 }
 
+button {
+    @apply bg-pink p-2 rounded-lg text-purplegrey hover:bg-ridercream transition ease-in-out
+}
+
 .grad-serenity {
     background-color: #42406f;
     background: linear-gradient(165deg, rgba(247,203,200,1) 0%, rgba(66,64,111,1) 80%);

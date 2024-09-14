@@ -14,9 +14,7 @@ export default function BackButton() {
     }
 
     return (
-        <button 
-        className="bg-pink p-2 rounded-lg mb-4 mt-4 text-purplegrey hover:bg-ridercream transition ease-in-out relative"
-        onClick={handleClick}
+        <button onClick={handleClick}
         >
             {loading
             ? <span className="absolute top-2 right-0 left-0 mx-auto animate-spin">★</span>
