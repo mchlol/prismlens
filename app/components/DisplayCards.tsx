@@ -3,6 +3,8 @@ import TarotCard from "~/components/TarotCard";
 import Reading from "./Reading";
 import { createCardString } from "~/functions/functions";
 import { CardStatusObj, CardObject } from "~/functions/types";
+import { Link } from "@remix-run/react";
+import { useNavigate } from "@remix-run/react";
 
 
 type Props = {
@@ -14,10 +16,13 @@ type Props = {
 
 export default function DisplayCards(props: Props) {
 
-    const numOfCards = props.cards.length;
     const { cards } = props;
+    const numOfCards = props.cards.length;
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
     const [allCardsFlipped, setAllCardsFlipped] = useState(false); 
+    
+    const navigate = useNavigate();
+    const type = props.heading;
 
     function sendData(cardId: string, flipped: boolean, reversed: boolean, name: string) {
         setCardStatus( (prevCardStatus) => ({
@@ -36,9 +41,15 @@ export default function DisplayCards(props: Props) {
         setAllCardsFlipped(allFlipped);
     },[cardStatus]);
 
+    function goToReading() {
+        console.log(cardStatus);
+        console.log(createCardString(cardStatus));
+        navigate(`/readings/report?type=${encodeURIComponent(type)}&cardsForReading=${encodeURIComponent(createCardString(cardStatus))}`);
+    }
+
     return (
         <section className="p-8 m-4">
-            <h2 className="uppercase text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{props.heading}</h2> 
+            <h2 className="uppercase text-2xl md:text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{props.heading}</h2> 
 
             <div className="m-4">
                 <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{props.subheading}</h3>
@@ -63,11 +74,10 @@ export default function DisplayCards(props: Props) {
                 allCardsFlipped 
                 ? 
 
-                    <div className="reading-wrapper text-ridercream">
-                        <Reading 
-                            readingType={'Past present future'} 
-                            readingRequest={createCardString(cardStatus)}
-                            />
+                    <div className="reading-wrapper mt-4 text-ridercream">
+                            <button className="bg-pink hover:bg-ridercream text-purplegrey p-2 rounded-md" onClick={goToReading}>
+                                Go to reading
+                            </button>
                     </div>
 
                 : 
