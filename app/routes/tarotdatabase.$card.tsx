@@ -6,18 +6,7 @@ import { getImgCode } from "~/functions/functions";
 import { Link } from "@remix-run/react";
 import StarCircleOutline from "../assets/starcircle-outline.svg";
 import BackButton from "~/components/BackButton";
-
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
+import { CardObject } from "~/functions/types";
 
 type LoaderData = {
     cards: Array<CardObject>

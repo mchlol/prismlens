@@ -2,18 +2,8 @@ import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 import HomeButton from "~/components/HomeButton";
 import Database from "~/components/Database";
+import { CardObject } from "~/functions/types";
 
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
 
 type LoaderData = {
     cards: Array<CardObject>
