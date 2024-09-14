@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
 import { getImgCode, renameCard } from "~/functions/functions";
 import { Link } from "@remix-run/react";
+import { CardObject } from "~/functions/types";
 
 interface TarotCardProps {
     sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
-    card: {
-        desc: string
-        meaning_rev: string
-        meaning_up: string
-        name: string
-        name_short: string
-        suit: string
-        type: string
-        value: string
-        value_int: number
-    }
+    card: CardObject
 }
 
 const TarotCard = ({card, sendData}: TarotCardProps) => {
