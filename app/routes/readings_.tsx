@@ -9,7 +9,7 @@ export default function ReadingsPage() {
             <div className="section-heading p-8">
                 <h2 className="uppercase text-3xl md:text-5xl mt-4 font-averiaSerifLibre mb-4 text-purplegrey">Readings</h2>
                 <p className="max-w-[80ch] mx-auto text-ridercream">
-                    The Tarot can offer us new ways of looking at a situation, to reveal new paths forward. Choose a reading to help you get unstuck, reframe your perspective, or open your mind to new possibilities.
+                    The Tarot can show you a different way to look at things, maybe reveal a new path or something. Just pick a reading if you're feeling stuck, want to reframe your perspective, or, I don't know, open your mind to whatever.
                 </p>
             </div>
             
