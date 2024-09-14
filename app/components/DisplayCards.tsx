@@ -2,37 +2,17 @@ import { useState, useEffect } from "react";
 import TarotCard from "~/components/TarotCard";
 import Reading from "./Reading";
 import { createCardString } from "~/functions/functions";
+import { CardStatusObj, CardObject } from "~/functions/types";
 
-interface CardStatusObj {
-    [cardId: string]: {
-        flipped: boolean
-        reversed: boolean
-        name: string
-    },
-}
-
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
 
 type Props = {
     cards: Array<CardObject>
-    numOfCards: number
-    sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
     heading: string
     subheading: string
     blurb: string
 }
 
-export default function DisplayCards(props: any) {
+export default function DisplayCards(props: Props) {
 
     console.log(props);
     const numOfCards = props.cards.length;
@@ -72,8 +52,7 @@ export default function DisplayCards(props: any) {
                 cards 
                 ? 
                 <div className="cards-wrapper">
-                    <h3 className="font-averiaSerifLibre text-lg text-ridercream">Your Cards</h3>
-
+                    
                     <div className="flex flex-row flex-wrap place-content-center gap-4 text-ridercream">
                         {cards.map( (card: CardObject) => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
                     </div>
@@ -95,7 +74,14 @@ export default function DisplayCards(props: any) {
                     </div>
 
                 : 
-                    <p className="text-ridercream">Flip all the cards to get your reading.</p>
+                    <p className="text-ridercream">
+                        {
+                        numOfCards > 1
+                        ?
+                        "Flip all the cards to get your reading."
+                        :
+                        "Flip the card to get your reading."
+                        }</p>
             }
 
 
