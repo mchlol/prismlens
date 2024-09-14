@@ -1,29 +1,9 @@
 import { useState, useEffect } from "react";
 import { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, json, useParams } from "@remix-run/react";
+import { CardStatusObj, CardObject } from "~/functions/types";
 import BackButton from "~/components/BackButton";
-
 import DisplayCards from "~/components/DisplayCards";
-
-interface CardStatusObj {
-    [cardId: string]: {
-        flipped: boolean
-        reversed: boolean
-        name: string
-    },
-}
-
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
 
 type LoaderData = {
     cards: Array<CardObject>
