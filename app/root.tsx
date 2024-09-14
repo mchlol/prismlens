@@ -32,7 +32,7 @@ export function ErrorBoundary() {
         <main className="min-h-[calc(100vh-10rem)]">
           <section className="p-8 m-4">
             <h1 className="text-3xl md:text-5xl font-averiaSerifLibre text-purplegrey">The spirits are displeased.</h1>
-            <p className="text-ridercream">There's nothing here.</p>
+            <p className="text-ridercream">Something went wrong!</p>
             <HomeButton />
           </section>
 
