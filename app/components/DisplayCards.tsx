@@ -14,13 +14,10 @@ type Props = {
 
 export default function DisplayCards(props: Props) {
 
-    console.log(props);
     const numOfCards = props.cards.length;
     const { cards } = props;
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
     const [allCardsFlipped, setAllCardsFlipped] = useState(false); 
-
-    console.log('cardStatus: ',cardStatus);
 
     function sendData(cardId: string, flipped: boolean, reversed: boolean, name: string) {
         setCardStatus( (prevCardStatus) => ({
