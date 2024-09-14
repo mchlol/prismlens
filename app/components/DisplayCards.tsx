@@ -37,10 +37,10 @@ export default function DisplayCards(props: Props) {
     },[cardStatus]);
 
     return (
-        <section className="p-8">
-            <h2 className="uppercase text-4xl font-averiaSerifLibre mb-2 text-purplegrey">{props.heading}</h2> 
+        <section className="p-8 m-4">
+            <h2 className="uppercase text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{props.heading}</h2> 
 
-            <div>
+            <div className="m-4">
                 <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{props.subheading}</h3>
                 <p>{props.blurb}</p>
             </div>
