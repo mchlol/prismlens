@@ -12,8 +12,8 @@ type LoaderData = {
 
 export let loader: LoaderFunction = async ({params}: LoaderFunctionArgs) => {
 
+    
     let numOfCards = 0;
-
     switch(params.type) {
         case 'yesno':
             numOfCards = 1;

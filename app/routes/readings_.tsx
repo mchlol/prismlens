@@ -1,4 +1,4 @@
-import ReadingPreviewCard from "~/components/ReadingPreviewCard"
+import ReadingPreviewCard from "~/components/preview/ReadingPreviewCard"
 import { Link } from "@remix-run/react"
 import BackButton from "~/components/BackButton"
 

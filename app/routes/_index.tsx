@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import Hero from "~/components/Hero";
-import ReadingsPreview from "~/components/ReadingsPreview";
-import DatabasePreview from "~/components/DatabasePreview";
+import ReadingsPreview from "~/components/preview/ReadingsPreview";
+import DatabasePreview from "~/components/preview/DatabasePreview";
 import Line from "../assets/llline.svg";
 
 export const meta: MetaFunction = () => {
