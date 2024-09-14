@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { fetchReport } from "~/functions/functions";
 
-interface AppProps {
+interface Props {
     readingType: string
     readingRequest: string
 }
 
-const Reading = ({readingType, readingRequest}: AppProps) => {
+const Reading = ({readingType, readingRequest}: Props) => {
 
     console.log(readingRequest)
 
