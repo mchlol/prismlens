@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import TarotCard from "~/components/TarotCard";
-import Reading from "./Reading";
 import { createCardString } from "~/lib/functions";
 import { CardStatusObj, CardObject } from "~/lib/types";
-import { Link } from "@remix-run/react";
 import { useNavigate } from "@remix-run/react";
 
 
@@ -14,15 +12,13 @@ type Props = {
     blurb: string
 }
 
-export default function DisplayCards(props: Props) {
+export default function DisplayCards({heading, subheading, blurb, cards}: Props) {
 
-    const { cards } = props;
-    const numOfCards = props.cards.length;
+    const numOfCards = cards.length;
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
     const [allCardsFlipped, setAllCardsFlipped] = useState(false); 
     
     const navigate = useNavigate();
-    const type = props.heading;
 
     function sendData(cardId: string, flipped: boolean, reversed: boolean, name: string) {
         setCardStatus( (prevCardStatus) => ({
@@ -36,24 +32,24 @@ export default function DisplayCards(props: Props) {
     }
 
     useEffect( () => {
+        // check that the number of items in the cardStatus object is the same length as the number of cards required 
         const hasCards = Object.keys(cardStatus).length === numOfCards;
         const allFlipped = hasCards && Object.values(cardStatus).every(item => item.flipped === true);
         setAllCardsFlipped(allFlipped);
     },[cardStatus]);
 
     function goToReading() {
-        console.log(cardStatus);
-        console.log(createCardString(cardStatus));
-        navigate(`/readings/report?type=${encodeURIComponent(type)}&cardsForReading=${encodeURIComponent(createCardString(cardStatus))}`);
+        // send the data required for a reading as url params
+        navigate(`/readings/report?type=${encodeURIComponent(heading)}&cardsForReading=${encodeURIComponent(createCardString(cardStatus))}`);
     }
 
     return (
         <section className="p-8 m-4">
-            <h2 className="uppercase text-2xl md:text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{props.heading}</h2> 
+            <h2 className="uppercase text-2xl md:text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{heading}</h2> 
 
             <div className="m-4">
-                <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{props.subheading}</h3>
-                <p className="text-ridercream">{props.blurb}</p>
+                <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{subheading}</h3>
+                <p className="text-ridercream">{blurb}</p>
             </div>
 
             {
