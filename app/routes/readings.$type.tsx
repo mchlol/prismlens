@@ -62,7 +62,8 @@ export default function GetTarotCards() {
                 subheading="Struggling with a decision?" 
                 blurb="Think about your question, then click the card to flip it."
                 />
-                : params.type === 'pastpresentfuture'
+                : 
+                    params.type === 'pastpresentfuture'
                     ?
                     <DisplayCards
                     cards={cards}
@@ -70,7 +71,8 @@ export default function GetTarotCards() {
                     subheading="Gain insight into the energies and events shaping your life journey."
                     blurb="Reflect on past influences, understand current situations, and explore potential future outcomes."
                     />
-                    :  <FallbackReading type={params.type} />
+                    :  
+                        <FallbackReading type={params.type} />
             }
 
 
