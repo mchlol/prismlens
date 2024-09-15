@@ -12,6 +12,7 @@ export default function Button({destination}: Props) {
 
     function handleClick() {
         setLoading(true);
+        // delay navigation so animation can start
         setTimeout( () => {
             destination === 'back' 
             ? navigate(-1)
