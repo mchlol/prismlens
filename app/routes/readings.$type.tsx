@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, json, useParams } from "@remix-run/react";
-import { CardStatusObj, CardObject } from "~/functions/types";
-import BackButton from "~/components/BackButton";
+import { CardStatusObj, CardObject } from "~/lib/types";
+import Button from "~/components/Button";
 import DisplayCards from "~/components/DisplayCards";
 import FallbackReading from "~/components/FallbackReading";
 
@@ -74,7 +74,7 @@ export default function GetTarotCards() {
             }
 
 
-            <BackButton />
+            <Button destination="/database" />
             
 
         </section>
