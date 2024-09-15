@@ -14,7 +14,7 @@ export default function BackButton() {
     }
 
     return (
-        <button onClick={handleClick}
+        <button className="relative" onClick={handleClick}
         >
             {loading
             ? <span className="absolute top-2 right-0 left-0 mx-auto animate-spin">★</span>
