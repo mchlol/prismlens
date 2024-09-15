@@ -74,7 +74,7 @@ export default function GetTarotCards() {
             }
 
 
-            <Button destination="/database" />
+            <Button destination="back" />
             
 
         </section>

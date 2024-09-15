@@ -9,7 +9,7 @@ import {
 import "./tailwind.css";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
-import HomeButton from "./components/HomeButton";
+import Button from "./components/Button";
 
 export function ErrorBoundary() {
   const error = useRouteError();
@@ -30,10 +30,11 @@ export function ErrorBoundary() {
         </div>
         
         <main className="min-h-[calc(100vh-10rem)]">
-          <section className="p-8 m-4">
+          <section className="p-8 m-4 flex flex-col gap-4 items-start">
             <h1 className="text-3xl md:text-5xl font-averiaSerifLibre text-purplegrey">The spirits are displeased.</h1>
             <p className="text-ridercream">Something went wrong!</p>
-            <HomeButton />
+            
+            <Button destination="/" />
           </section>
 
         </main>

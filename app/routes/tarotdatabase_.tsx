@@ -1,7 +1,7 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
-import HomeButton from "~/components/HomeButton";
 import Database from "~/components/Database";
+import Button from "~/components/Button";
 import { CardObject } from "~/lib/types";
 
 
@@ -25,7 +25,7 @@ export default function TarotDatabase() {
 
             <Database cards={cards}/>
 
-            <HomeButton />
+            <Button destination="/" />
             
 
         </section>
