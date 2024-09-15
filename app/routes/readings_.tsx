@@ -1,6 +1,6 @@
-import ReadingPreviewCard from "~/components/preview/ReadingPreviewCard"
-import { Link } from "@remix-run/react"
-import BackButton from "~/components/BackButton"
+import ReadingPreviewCard from "~/components/preview/ReadingPreviewCard";
+import { Link } from "@remix-run/react";
+import Button from "~/components/Button";
 
 export default function ReadingsPage() {
     return (
@@ -35,7 +35,8 @@ export default function ReadingsPage() {
                     </ReadingPreviewCard>
                 </Link>
             </div>
-            <BackButton />
+            
+            <Button destination="back" />
         </section>
     )
 

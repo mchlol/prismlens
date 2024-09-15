@@ -3,10 +3,9 @@ import { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
 import { getImgCode } from "~/lib/functions";
-import { Link } from "@remix-run/react";
 import StarCircleOutline from "../assets/starcircle-outline.svg";
-import BackButton from "~/components/BackButton";
 import { CardObject } from "~/lib/types";
+import Button from "~/components/Button";
 
 type LoaderData = {
     cards: Array<CardObject>
@@ -60,7 +59,7 @@ export default function Card() {
             </div>
 
         <div className="mx-auto text-center mb-8">
-            <BackButton />
+            <Button destination="back" />
         </div>
 
         </section>
