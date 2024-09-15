@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import TarotCard from "~/components/TarotCard";
 import Reading from "./Reading";
-import { createCardString } from "~/functions/functions";
-import { CardStatusObj, CardObject } from "~/functions/types";
+import { createCardString } from "~/lib/functions";
+import { CardStatusObj, CardObject } from "~/lib/types";
 import { Link } from "@remix-run/react";
 import { useNavigate } from "@remix-run/react";
 

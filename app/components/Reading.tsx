@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchReport } from "~/functions/functions";
+import { fetchReport } from "~/lib/functions";
 
 interface Props {
     readingType: string

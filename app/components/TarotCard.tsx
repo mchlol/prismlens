@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getImgCode, renameCard } from "~/functions/functions";
+import { getImgCode, renameCard } from "~/lib/functions";
 import { Link } from "@remix-run/react";
-import { CardObject } from "~/functions/types";
+import { CardObject } from "~/lib/types";
 
 interface TarotCardProps {
     sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void

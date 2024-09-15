@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
-import { getImgCode } from "~/functions/functions";
+import { getImgCode } from "~/lib/functions";
 
 type Props = {
     code: string

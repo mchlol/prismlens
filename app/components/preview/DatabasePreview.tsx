@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { getImgCode } from "~/functions/functions";
+import { getImgCode } from "~/lib/functions";
 import DatabasePreviewCard from "./DatabasePreviewCard";
 
 export default function DatabasePreview() {

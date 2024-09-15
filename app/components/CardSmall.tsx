@@ -1,4 +1,4 @@
-import { getImgCode, renameCard } from "~/functions/functions";
+import { getImgCode, renameCard } from "~/lib/functions";
 import { Link } from "@remix-run/react";
 
 interface TarotCardProps {

@@ -2,7 +2,7 @@ import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json } from "@remix-run/react";
 import HomeButton from "~/components/HomeButton";
 import Database from "~/components/Database";
-import { CardObject } from "~/functions/types";
+import { CardObject } from "~/lib/types";
 
 
 type LoaderData = {

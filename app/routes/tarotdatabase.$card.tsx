@@ -2,11 +2,11 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 import { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
-import { getImgCode } from "~/functions/functions";
+import { getImgCode } from "~/lib/functions";
 import { Link } from "@remix-run/react";
 import StarCircleOutline from "../assets/starcircle-outline.svg";
 import BackButton from "~/components/BackButton";
-import { CardObject } from "~/functions/types";
+import { CardObject } from "~/lib/types";
 
 type LoaderData = {
     cards: Array<CardObject>
