@@ -1,0 +1,31 @@
+import { useNavigate } from "@remix-run/react";
+import { useState } from "react";
+
+type Props = {
+    destination: string
+}
+
+export default function Button({destination}: Props) {
+
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    function handleClick() {
+        setLoading(true);
+        setTimeout( () => {
+            destination === 'back' 
+            ? navigate(-1)
+            : navigate(destination)
+        },500);
+    }
+
+    return (
+        <button className="relative" onClick={handleClick}
+        >
+            {loading
+            ? <span className="absolute top-2 right-0 left-0 mx-auto animate-spin">★</span>
+            : null}
+            <span className={loading ? 'text-transparent text-ridercream' : ''}>Back</span>
+        </button>
+    )
+}
