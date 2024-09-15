@@ -26,7 +26,7 @@ export default function NavBar() {
 
     return (
         <div className="w-full max-w-[1240px] mx-auto">
-            <nav className="flex flex-wrap justify-between items-center p-8 h-20">
+            <nav className="flex flex-wrap justify-between items-center p-4 h-20">
                 <div>
                     <Link to="/" className="flex items-start gap-1 ">
                         <h1 className="font-averiaSerifLibre text-ridercream text-xl">PrismLens</h1>
