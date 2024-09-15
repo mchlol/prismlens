@@ -1,5 +1,5 @@
 function getShortName(name: string) {
-    // * make a union type for each object
+    // * make a union type for each object instead of using 'any'
 
     const major: any = {
         "The Fool": "m00",
@@ -27,10 +27,10 @@ function getShortName(name: string) {
     };
 
     const suits: any = {
-        'Swords': 'sw', 
-        'Pentacles': 'pe', 
-        'Wands': 'wa',
-        'Cups': 'cu'
+        'Swords': 's', 
+        'Pentacles': 'p', 
+        'Wands': 'w',
+        'Cups': 'c'
     };
 
     const ranks: any = {
@@ -50,17 +50,15 @@ function getShortName(name: string) {
         'King': '14'
     }
 
-    // check if it's in the major arcana object
-    if (major[name]) {
-        // return the corresponding value
-        return major[name]
+    if (Object.keys(major).includes(name)) {
+        // ! check for strength/fortitude and judgement
+        return major[name];
     }
 
     // if no early return, continue
-    // splits on space so 'of' will be skipped
     const rank = name.split(' ')[0];
     const suit = name.split(' ')[2];
-    const shortName = `${ranks[rank]}${suits[suit]}`;
+    const shortName = `${suits[suit]}${ranks[rank]}`;
 
     return shortName;
 }
@@ -109,6 +107,7 @@ function createCardString(cards: any) {
 }
 
 export {
+    getShortName,
     getImgCode,
     renameCard,
     createCardString
