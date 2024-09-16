@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { fetchReport, getShortName } from "~/lib/functions";
 import Button from "~/components/Button";
 import Line from "../assets/llline.svg";
+import { nanoid } from "nanoid";
 
 type LoaderData = {
     report: string
@@ -50,10 +51,55 @@ export default function ReadingReport() {
     }
 
     const [reading, setReading] = useState('');
-
+    const [readingId, setReadingId] = useState(nanoid())
+;
     useEffect( () => {
         setReading(report);
+        
     },[]);
+
+    function saveReading() {
+
+        type ReadingToSave = {
+            id: string
+            date: number
+            cards: Array<string>
+            readingText: string
+        }
+
+        const readingToSave: ReadingToSave = {
+            id: readingId,
+            date: Date.now(),
+            cards: cardsArr,
+            readingText: report
+        }
+
+        let storedReadings = localStorage.getItem('savedReadings');
+        let parsedReadings: ReadingToSave[] = [];
+
+        if (storedReadings) {
+            try {
+                parsedReadings = JSON.parse(storedReadings);
+            } catch(err) {
+                console.error("Error parsing stored readings: ", err);
+            }
+        }
+
+        if (!parsedReadings || parsedReadings.length === 0) {
+            // check if the reading already exists
+
+            const indexInList = parsedReadings.findIndex(reading => reading.id === readingId);
+            const exists = indexInList >= 0;
+
+            if (!exists) {
+                parsedReadings.push(readingToSave);
+            } 
+        } else {
+            console.log('Reading already saved')
+        }
+
+        localStorage.setItem('savedReadings', JSON.stringify(parsedReadings));
+    }
 
     return (
         <section className="text-center text-ridercream m-8">
@@ -77,6 +123,12 @@ export default function ReadingReport() {
                     <img src="/dalle-portrait.webp" className="hidden md:block md:max-w-40 rounded-lg -hue-rotate-30" />
                     <p>{report}</p>
                 </div>
+
+                <button
+                onClick={saveReading}
+                >
+                    Save this reading
+                </button>
 
                 <img src={Line} alt="" className="w-24 svg-pink"/>
 
