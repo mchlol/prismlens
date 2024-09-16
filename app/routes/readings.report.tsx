@@ -2,6 +2,7 @@ import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData, json, Link } from "@remix-run/react";
 import { useState, useEffect } from "react";
 import { fetchReport, getShortName } from "~/lib/functions";
+import { ReadingToSave } from "~/lib/types";
 import Button from "~/components/Button";
 import Line from "../assets/llline.svg";
 import { nanoid } from "nanoid";
@@ -19,6 +20,7 @@ export let loader: LoaderFunction = async ({request}) => {
     const type = url.searchParams.get('type') || '';
     const cardsForReading = url.searchParams.get('cardsForReading') || '';
 
+
     // construct the message to be sent to the API
     const message = `For a ${type} reading: ${cardsForReading}`;
     const report = await fetchReport(message);
@@ -32,6 +34,9 @@ export let loader: LoaderFunction = async ({request}) => {
 export default function ReadingReport() {
 
     const { report, type, cardsForReading, cardsArr } = useLoaderData<LoaderData>();
+    const [reading, setReading] = useState('');
+    const [readingId, setReadingId] = useState('');
+    const [readingSaved, setReadingSaved] = useState(false);
 
     function stripOrientation(name: string) {
         if (name) {
@@ -49,9 +54,6 @@ export default function ReadingReport() {
             return orientation === 'reversed' ? true : false;
         }
     }
-
-    const [reading, setReading] = useState('');
-    const [readingId, setReadingId] = useState('');
 ;
     useEffect( () => {
         setReading(report);
@@ -65,13 +67,6 @@ export default function ReadingReport() {
 
     function saveReading() {
 
-        type ReadingToSave = {
-            id: string
-            date: number
-            type: string
-            cards: Array<string>
-            readingText: string
-        }
 
         const readingToSave: ReadingToSave = {
             id: readingId,
@@ -108,6 +103,7 @@ export default function ReadingReport() {
         }
 
         localStorage.setItem('savedReadings', JSON.stringify(parsedReadings));
+        setReadingSaved(true);
     }
 
     return (
@@ -133,17 +129,22 @@ export default function ReadingReport() {
                     <p>{report}</p>
                 </div>
 
-                <button
-                onClick={saveReading}
-                >
-                    Save this reading
-                </button>
-
-                <img src={Line} alt="" className="w-24 svg-pink"/>
-
-                <Link to="/readings" className="mb-4 underline underline-offset-2 hover:no-underline">
-                    <span>Back to readings</span>
-                </Link>
+                <div className="flex flex-col gap-4">
+                    <button
+                    onClick={saveReading}
+                    disabled={readingSaved}
+                    className={readingSaved ? 'opacity-20 hover:bg-pink cursor-not-allowed' : ''}
+                    >
+                        {
+                            readingSaved
+                            ? 'Reading saved'
+                            : 'Save this reading'
+                        }
+                    </button>
+                    <Link to="/readings" className="mb-4 underline underline-offset-2 hover:no-underline">
+                        <span>Back to readings</span>
+                    </Link>
+                </div>
             </div>
 
             
