@@ -1,6 +1,8 @@
 function getShortName(name: string) {
     // * make a union type for each object instead of using 'any'
 
+    name = renameCard(name);
+
     const major: any = {
         "The Fool": "m00",
         "The Magician": "m01",
@@ -51,7 +53,6 @@ function getShortName(name: string) {
     }
 
     if (Object.keys(major).includes(name)) {
-        // ! check for strength/fortitude and judgement
         return major[name];
     }
 
@@ -96,13 +97,11 @@ function renameCard(cardName: string) {
 }
 
 function createCardString(cards: any) {
-    console.log('cards in function: ',cards);
 
     const array = Object.values(cards);
     let names: Array<String> = [];
-    array.forEach( (card: any) => names.push(card.name));
+    array.forEach( (card: any) => names.push(`${card.name} ${card.reversed ? 'reversed' : 'upright'}`));
     const join = names.join(', ');
-    console.log('join in function: ',join);
     return join;
 }
 
@@ -116,7 +115,6 @@ export {
 // ai
 
 export async function fetchReport(readingRequest: string) {
-    console.log('reading request in function: ',readingRequest);
     const messages = [
         {
             role: 'system',
