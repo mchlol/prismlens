@@ -44,7 +44,7 @@ export default function NavBar() {
                             ? 
                                 <MdClose className="animate-spin-menu text-2xl"/>
                             :
-                                <MdMenu className="animate-spin-menu text-2xl"/>
+                                <MdMenu className="text-2xl"/>
                         }
                     </button>
 
