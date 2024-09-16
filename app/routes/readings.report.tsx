@@ -54,10 +54,12 @@ export default function ReadingReport() {
             return orientation === 'reversed' ? true : false;
         }
     }
-;
+    
     useEffect( () => {
         setReading(report);
-        setReadingId(nanoid());
+        if (!readingId) {
+            setReadingId(nanoid());
+        }
     },[]);
 
     useEffect( () => {
