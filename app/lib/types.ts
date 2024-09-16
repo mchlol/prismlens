@@ -22,8 +22,17 @@ type CardsArr = {
     cards: Array<CardObject>
 }
 
+type ReadingToSave = {
+    id: string
+    date: number
+    type: string
+    cards: Array<string>
+    readingText: string
+}
+
 export type {
     CardStatusObj,
     CardObject,
-    CardsArr
+    CardsArr,
+    ReadingToSave
 }
