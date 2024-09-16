@@ -51,13 +51,11 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                     {
                         cardFlipped
                         &&
-                            <div>
-                            <Link to={`/tarotdatabase/${card.name_short}`}
-                            className="text-pink">
-                                <h3 className="font-averiaSerifLibre text-xl">{renameCard(card.name)} {cardReversed && '(reversed)'}</h3>
-                            
-                            </Link>
-                            </div>
+                        <Link to={`/tarotdatabase/${card.name_short}`}
+                        className="text-pink">
+                            <h4 className="font-averiaSerifLibre text-xl">{renameCard(card.name)} {cardReversed && '(reversed)'}</h4>
+                        
+                        </Link>
  
                     }
                     </div>
