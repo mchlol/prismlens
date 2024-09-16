@@ -51,12 +51,17 @@ export default function ReadingReport() {
     }
 
     const [reading, setReading] = useState('');
-    const [readingId, setReadingId] = useState(nanoid())
+    const [readingId, setReadingId] = useState('');
 ;
     useEffect( () => {
         setReading(report);
-        
+        setReadingId(nanoid());
     },[]);
+
+    useEffect( () => {
+        // if the reading has changed assign a new id
+        setReadingId(nanoid());
+    },[reading])
 
     function saveReading() {
 
@@ -86,16 +91,18 @@ export default function ReadingReport() {
         }
 
         if (!parsedReadings || parsedReadings.length === 0) {
-            // check if the reading already exists
-
+            // the item doesn't exist in local storage yet, so create it
+            parsedReadings = [readingToSave];            
+        } else {
+            // the item does exist, but first check if this reading is already saved
             const indexInList = parsedReadings.findIndex(reading => reading.id === readingId);
             const exists = indexInList >= 0;
-
             if (!exists) {
                 parsedReadings.push(readingToSave);
-            } 
-        } else {
-            console.log('Reading already saved')
+            } else {
+                // ? display to the user
+                console.log('Reading already saved')
+            }
         }
 
         localStorage.setItem('savedReadings', JSON.stringify(parsedReadings));
