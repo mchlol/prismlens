@@ -18,7 +18,12 @@ type CardObject = {
     value_int: number
 }
 
+type CardsArr = {
+    cards: Array<CardObject>
+}
+
 export type {
     CardStatusObj,
-    CardObject
+    CardObject,
+    CardsArr
 }
