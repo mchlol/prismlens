@@ -68,6 +68,7 @@ export default function ReadingReport() {
         type ReadingToSave = {
             id: string
             date: number
+            type: string
             cards: Array<string>
             readingText: string
         }
@@ -75,6 +76,7 @@ export default function ReadingReport() {
         const readingToSave: ReadingToSave = {
             id: readingId,
             date: Date.now(),
+            type,
             cards: cardsArr,
             readingText: report
         }
