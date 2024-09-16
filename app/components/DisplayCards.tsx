@@ -45,7 +45,7 @@ export default function DisplayCards({heading, subheading, blurb, cards}: Props)
 
     return (
         <section className="p-8 m-4">
-            <h2 className="uppercase text-2xl md:text-5xl font-averiaSerifLibre mb-2 text-purplegrey">{heading}</h2> 
+            <h2>{heading}</h2> 
 
             <div className="m-4">
                 <h3 className="font-averiaSerifLibre text-xl text-purplegrey">{subheading}</h3>
