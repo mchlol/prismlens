@@ -1,67 +1,70 @@
-function getShortName(name: string) {
+function getShortName(name: string | undefined) {
     // * make a union type for each object instead of using 'any'
 
-    name = renameCard(name);
+    if (name) {
 
-    const major: any = {
-        "The Fool": "m00",
-        "The Magician": "m01",
-        "The High Priestess": "m02",
-        "The Empress": "m03",
-        "The Emperor": "m04",
-        "The Hierophant": "m05",
-        "The Lovers": "m06",
-        "The Chariot": "m07",
-        "Strength": "m08",
-        "The Hermit": "m09",
-        "Wheel of Fortune": "m10",
-        "Justice": "m11",
-        "The Hanged Man": "m12",
-        "Death": "m13",
-        "Temperance": "m14",
-        "The Devil": "m15",
-        "The Tower": "m16",
-        "The Star": "m17",
-        "The Moon": "m18",
-        "The Sun": "m19",
-        "Judgement": "m20",
-        "The World": "m21"
-    };
+        name = renameCard(name);
 
-    const suits: any = {
-        'Swords': 's', 
-        'Pentacles': 'p', 
-        'Wands': 'w',
-        'Cups': 'c'
-    };
+        const major: any = {
+            "The Fool": "m00",
+            "The Magician": "m01",
+            "The High Priestess": "m02",
+            "The Empress": "m03",
+            "The Emperor": "m04",
+            "The Hierophant": "m05",
+            "The Lovers": "m06",
+            "The Chariot": "m07",
+            "Strength": "m08",
+            "The Hermit": "m09",
+            "Wheel of Fortune": "m10",
+            "Justice": "m11",
+            "The Hanged Man": "m12",
+            "Death": "m13",
+            "Temperance": "m14",
+            "The Devil": "m15",
+            "The Tower": "m16",
+            "The Star": "m17",
+            "The Moon": "m18",
+            "The Sun": "m19",
+            "Judgement": "m20",
+            "The World": "m21"
+        };
 
-    const ranks: any = {
-        'Ace': '01',
-        'Two': '02',
-        'Three': '03',
-        'Four': '04',
-        'Five': '05',
-        'Six': '06',
-        'Seven': '07',
-        'Eight': '08',
-        'Nine': '09',
-        'Ten': '10',
-        'Page': '11',
-        'Knight': '12',
-        'Queen': '13',
-        'King': '14'
+        const suits: any = {
+            'Swords': 's', 
+            'Pentacles': 'p', 
+            'Wands': 'w',
+            'Cups': 'c'
+        };
+
+        const ranks: any = {
+            'Ace': '01',
+            'Two': '02',
+            'Three': '03',
+            'Four': '04',
+            'Five': '05',
+            'Six': '06',
+            'Seven': '07',
+            'Eight': '08',
+            'Nine': '09',
+            'Ten': '10',
+            'Page': '11',
+            'Knight': '12',
+            'Queen': '13',
+            'King': '14'
+        }
+
+        if (Object.keys(major).includes(name)) {
+            return major[name];
+        }
+
+        // if no early return, continue
+        const rank = name.split(' ')[0];
+        const suit = name.split(' ')[2];
+        const shortName = `${suits[suit]}${ranks[rank]}`;
+
+        return shortName;
     }
-
-    if (Object.keys(major).includes(name)) {
-        return major[name];
-    }
-
-    // if no early return, continue
-    const rank = name.split(' ')[0];
-    const suit = name.split(' ')[2];
-    const shortName = `${suits[suit]}${ranks[rank]}`;
-
-    return shortName;
 }
 
 // intepret the short name to retrieve the right card image
