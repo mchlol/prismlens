@@ -6,10 +6,10 @@ export default function DatabasePreview() {
 
 
     return (
-        <section className="w-full p-8 mx-auto relative">
+        <section className="w-full p-8 mx-auto relative mb-4">
 
             <div className="text-ridercream mb-4">
-                <h2 className="text-3xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Database</h2>
+                <h2 className="text-3xl md:text-5xl mt-4 font-averiaSerifLibre mb-4 text-ridercream">Database</h2>
                 <p>Explore the meanings behind the cards and symbolism of the imagery, using the Rider-Waite-Smith Tarot. It gets pretty wordy.</p>
             </div>
 
