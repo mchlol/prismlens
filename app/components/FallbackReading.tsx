@@ -6,7 +6,7 @@ interface Props {
 export default function FallbackReading({type}: Props) {
     return (
         <div className="flex flex-col justify-center items-center text-ridercream gap-4 p-8 max-w-[65ch] mx-auto">
-            <h2 className="text-purplegrey text-2xl md:text-5xl font-averiaSerifLibre">uggghhhhhh....</h2>
+            <h2>uggghhhhhh....</h2>
                     <img
                     src="/dalle-portrait-2 copy.png"
                     alt="A gen-z witch with e-girl style, holding the tarot card 'the star'."
