@@ -1,5 +1,5 @@
 import { LoaderFunction } from "@remix-run/node";
-import { useLoaderData, json } from "@remix-run/react";
+import { useLoaderData, json, Link } from "@remix-run/react";
 import Database from "~/components/Database";
 import Button from "~/components/Button";
 import { CardObject } from "~/lib/types";
@@ -25,7 +25,10 @@ export default function TarotDatabase() {
 
             <Database cards={cards}/>
 
-            <Button destination="/">Home</Button>
+            <div className="flex justify-center gap-2">
+                <Link to="#top"><button>Top</button></Link>
+                <Button destination="/">Home</Button>
+            </div>
             
 
         </section>

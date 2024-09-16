@@ -18,8 +18,9 @@ interface Props {
 export default function DatabaseSection({suit, cards}: Props) {
 
     return (
-        <div className="m-4 max-w-[1000px] mx-auto">
-            <h4 id={suit} className="font-averiaSerifLibre text-xl mb-4">
+        <div className="m-4 max-w-[1000px] mx-auto relative">
+            <div id={suit} className="db-heading absolute -top-24"></div>
+            <h4 className="font-averiaSerifLibre text-xl mb-4">
                 {`${suit[0].toUpperCase()}${suit.substring(1)}`}
             </h4>
             
