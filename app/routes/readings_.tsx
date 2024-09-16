@@ -36,7 +36,7 @@ export default function ReadingsPage() {
                 </Link>
             </div>
             
-            <Button destination="back" />
+            <Button destination="back">Back</Button>
         </section>
     )
 

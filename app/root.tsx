@@ -34,7 +34,7 @@ export function ErrorBoundary() {
             <h1 className="text-3xl md:text-5xl font-averiaSerifLibre text-purplegrey">The spirits are displeased.</h1>
             <p className="text-ridercream">Something went wrong!</p>
             
-            <Button destination="/" />
+            <Button destination="/">Home</Button>
           </section>
 
         </main>

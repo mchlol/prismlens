@@ -72,7 +72,7 @@ export default function ReadingReport() {
 
             
 
-            <Button destination="/" />
+            <Button destination="/">Back</Button>
         </section>
     )
 }

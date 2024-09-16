@@ -25,7 +25,7 @@ export default function TarotDatabase() {
 
             <Database cards={cards}/>
 
-            <Button destination="/" />
+            <Button destination="/">Home</Button>
             
 
         </section>

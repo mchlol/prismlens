@@ -59,7 +59,7 @@ export default function Card() {
             </div>
 
         <div className="mx-auto text-center mb-8">
-            <Button destination="back" />
+            <Button destination="back">Back</Button>
         </div>
 
         </section>

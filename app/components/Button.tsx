@@ -3,9 +3,10 @@ import { useState } from "react";
 
 type Props = {
     destination: string
+    children: string
 }
 
-export default function Button({destination}: Props) {
+export default function Button({destination, children}: Props) {
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -26,7 +27,7 @@ export default function Button({destination}: Props) {
             {loading
             ? <span className="absolute top-2 right-0 left-0 mx-auto animate-spin">★</span>
             : null}
-            <span className={loading ? 'text-transparent text-ridercream' : ''}>Back</span>
+            <span className={loading ? 'text-transparent text-ridercream' : ''}>{children}</span>
         </button>
     )
 }
