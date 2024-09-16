@@ -32,6 +32,23 @@ export default function ReadingReport() {
 
     const { report, type, cardsForReading, cardsArr } = useLoaderData<LoaderData>();
 
+    function stripOrientation(name: string) {
+        if (name) {
+            const arr = name.split(' ');
+            arr.pop();
+            return arr.join(' ')
+        }
+    }
+
+    function isCardReversed(name: string) {
+        if (name) {
+            const arr = name.split(' ');
+            const orientation = arr.pop();
+
+            return orientation === 'reversed' ? true : false;
+        }
+    }
+
     const [reading, setReading] = useState('');
 
     useEffect( () => {
@@ -40,16 +57,16 @@ export default function ReadingReport() {
 
     return (
         <section className="text-center text-ridercream m-8">
-            <h1 className="uppercase text-2xl md:text-5xl font-averiaSerifLibre mb-2 text-purplegrey">Your Reading</h1>
+            <h2>Your Reading</h2>
 
             <div className="text-purplegrey fade-in-text p-4 m-4 mx-auto border-purplegrey border-4 bg-ridercream flex flex-col justify-center items-center w-fit">
 
                 <div className="flex flex-col gap-4 justify-center items-center p-8">
-                    <h2 className="text-xl text-purplegrey font-averiaSerifLibre">{type}</h2>
+                    <h3 className="text-2xl">{type}</h3>
                     <p className="font-averiaSerifLibre">{cardsForReading}</p>
                     <div className="flex flex-wrap justify-center gap-2">
                         {
-                            cardsArr.map(card => <img key={card}className="w-full max-w-24 md:max-w-36" src={`/cards/${getShortName(card)}.jpg`} alt="" />)
+                            cardsArr.map(card => <img key={card} className={`w-full max-w-24 md:max-w-36 ${isCardReversed(card) ? 'rotate-180' : ''}`} src={`/cards/${getShortName(stripOrientation(card))}.jpg`} alt="" />)
                         }
                     </div>
                 </div>
@@ -57,7 +74,7 @@ export default function ReadingReport() {
                 <img src={Line} alt="" className="w-24 svg"/>
 
                 <div className="flex flex-row justify-center items-start gap-4 p-8 max-w-[75ch] mx-auto w-fit mb-4">
-                    <img src="/dalle-portrait.webp" className="hidden md:block md:max-w-40 rounded-lg -hue-rotate-60" />
+                    <img src="/dalle-portrait.webp" className="hidden md:block md:max-w-40 rounded-lg -hue-rotate-30" />
                     <p>{report}</p>
                 </div>
 
@@ -70,7 +87,7 @@ export default function ReadingReport() {
 
             
 
-            <Button destination="/">Back</Button>
+            <Button destination="back">Back</Button>
         </section>
     )
 }
