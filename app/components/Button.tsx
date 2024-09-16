@@ -22,7 +22,7 @@ export default function Button({destination, children}: Props) {
     }
 
     return (
-        <button className="relative" onClick={handleClick}
+        <button className={`relative ${loading ? 'bg-ridercream' : 'bg-pink'}`} onClick={handleClick}
         >
             {loading
             ? <span className="absolute top-2 right-0 left-0 mx-auto animate-spin">★</span>
