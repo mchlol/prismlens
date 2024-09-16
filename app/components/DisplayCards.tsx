@@ -3,6 +3,7 @@ import TarotCard from "~/components/TarotCard";
 import { createCardString } from "~/lib/functions";
 import { CardStatusObj, CardObject } from "~/lib/types";
 import { useNavigate } from "@remix-run/react";
+import Button from "./Button";
 
 
 type Props = {
@@ -55,7 +56,7 @@ export default function DisplayCards({heading, subheading, blurb, cards}: Props)
             {
                 cards 
                 ? 
-                <div className="cards-wrapper">
+                <div className="cards-wrapper border-4 bg-ridercream w-fit p-8 mx-auto md:h-[500px]">
                     
                     <div className="flex flex-row flex-wrap place-content-center gap-4 text-ridercream">
                         {cards.map( (card: CardObject) => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
@@ -66,25 +67,15 @@ export default function DisplayCards({heading, subheading, blurb, cards}: Props)
                 : <p>Unable to retrieve cards</p>
             }
 
-{
+            {
                 allCardsFlipped 
-                ? 
+                &&
 
                     <div className="reading-wrapper mt-4 text-ridercream">
-                            <button className="bg-pink hover:bg-ridercream text-purplegrey p-2 rounded-md" onClick={goToReading}>
-                                Go to reading
-                            </button>
-                    </div>
+                            <Button destination={`/readings/report?type=${encodeURIComponent(heading)}&cardsForReading=${encodeURIComponent(createCardString(cardStatus))}`}>Go to reading</Button>
 
-                : 
-                    <p className="text-ridercream">
-                        {
-                        numOfCards > 1
-                        ?
-                        "Flip all the cards to get your reading."
-                        :
-                        "Flip the card to get your reading."
-                        }</p>
+                    </div>
+  
             }
 
 
