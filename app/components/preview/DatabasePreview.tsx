@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
-import { getImgCode } from "~/lib/functions";
 import DatabasePreviewCard from "./DatabasePreviewCard";
+import Button from "../Button";
 
 export default function DatabasePreview() {
 
@@ -24,13 +24,7 @@ export default function DatabasePreview() {
             </div>
 
             <div className="w-full text-center mt-8">
-                <Link to="/tarotdatabase" className="mx-auto">
-                    <button
-                    className="bg-pink p-2 rounded-lg mb-4 mt-4 text-purplegrey hover:bg-ridercream transition-all duration-200 ease-in-out"
-                    >
-                        Go to database
-                    </button>
-                </Link>
+               <Button destination="/tarotdatabase">Go to database</Button>
             </div>
 
 
