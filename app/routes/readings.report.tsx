@@ -31,13 +31,11 @@ export let loader: LoaderFunction = async ({request}) => {
 export default function ReadingReport() {
 
     const { report, type, cardsForReading, cardsArr } = useLoaderData<LoaderData>();
-    console.log(cardsArr);
 
     const [reading, setReading] = useState('');
 
     useEffect( () => {
         setReading(report);
-        console.log(getShortName(cardsArr[0]))
     },[]);
 
     return (
