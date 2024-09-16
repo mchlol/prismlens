@@ -10,7 +10,15 @@ html, body {
 }
 
 button {
-    @apply bg-pink p-2 rounded-lg text-purplegrey hover:bg-ridercream transition ease-in-out
+    @apply bg-pink p-2 rounded-lg text-purplegrey hover:bg-ridercream transition ease-in-out;
+}
+
+h1, h2, h3, h4 {
+    @apply font-averiaSerifLibre text-purplegrey;
+}
+
+h2 {
+    @apply uppercase text-2xl md:text-5xl text-purplegrey;
 }
 
 .grad-serenity {
