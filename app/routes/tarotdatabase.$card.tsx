@@ -2,22 +2,10 @@ import type { LoaderFunctionArgs } from "@remix-run/node";
 import { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData, useNavigate } from "@remix-run/react";
-import { getImgCode } from "~/functions/functions";
-import { Link } from "@remix-run/react";
+import { getImgCode } from "~/lib/functions";
 import StarCircleOutline from "../assets/starcircle-outline.svg";
-import BackButton from "~/components/BackButton";
-
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
+import { CardObject } from "~/lib/types";
+import Button from "~/components/Button";
 
 type LoaderData = {
     cards: Array<CardObject>
@@ -71,7 +59,7 @@ export default function Card() {
             </div>
 
         <div className="mx-auto text-center mb-8">
-            <BackButton />
+            <Button destination="back">Back</Button>
         </div>
 
         </section>

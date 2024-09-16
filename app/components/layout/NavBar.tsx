@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 import { Link } from "@remix-run/react";
 import { MdMenu, MdClose } from "react-icons/md";
 
 export default function NavBar() {
 
-    // type of element must be a div
     const ref = useRef<HTMLDivElement | null>(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,9 +14,7 @@ export default function NavBar() {
 
     useEffect( () => {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-            // make sure ref is not null 
             if (ref && ref.current) {
-                // if menu is open, but the click event happens anywhere BUT the ref (menu wrapper), the menu will close
                 if (!ref.current.contains(event.target as Node) && menuOpen) {
                 setMenuOpen(false);
                 }
@@ -28,18 +25,18 @@ export default function NavBar() {
     },[ref, menuOpen])
 
     return (
-        <div className="fixed top-0 z-30 w-full max-w-[1240px]">
-            <nav className="flex flex-wrap justify-between items-center p-8 h-20">
+        <div className="w-full max-w-[1240px] mx-auto">
+            <nav className="flex flex-wrap justify-between items-center p-4 h-20">
                 <div>
-                    <Link to="/" className="flex items-end gap-1">
-                        <h1 className="font-averiaSerifLibre text-purplegrey text-xl">PrismLens</h1>
-                        <img src={Logo} alt="logo" className="max-w-6 svg" />
+                    <Link to="/" className="flex items-start gap-1 ">
+                        <h1 className="font-averiaSerifLibre text-ridercream text-xl">PrismLens</h1>
+                        <img src={Logo} alt="logo" className="max-w-6 svg-cream" />
                     </Link>
                 </div>
                 {/* the ref is attached to the menu wrapper */}
                 <div ref={ref} className="menu-wrapper relative z-50">
                     <button 
-                    className="text-purplegrey text-lg hover:scale-110"
+                    className="hover:scale-110"
                     onClick={() => toggleMenu()}
                     >
                         {
@@ -51,13 +48,13 @@ export default function NavBar() {
                         }
                     </button>
 
-                    <div className={`absolute right-0 top-8 ${menuOpen ? 'opacity-1' : 'opacity-0'} duration-500 transition ease-in-out`}>
+                    <div className={`absolute right-0 top-11 ${menuOpen ? 'opacity-1' : 'opacity-0'} duration-500 transition ease-in-out`}>
                         <ul className="flex flex-col text-right gap-4 font-averiaSerifLibre text-sm text-ridercream bg-blueblack p-4 opacity-90 rounded-xl">
-                        <li className="hover:text-pink">
+                            <li className="hover:text-pink">
                                 <Link to="/">Home</Link>
                             </li>
                             <li className="hover:text-pink">
-                                <Link to="/about">About</Link>
+                                <Link to="/readings">Readings</Link>
                             </li>
                             <li className="hover:text-pink">
                                 <Link to="/tarotdatabase">

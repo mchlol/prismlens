@@ -4,3 +4,6 @@ node_modules
 /build
 .env
 data.js
+.DS_Store
+public/dalle-portrait-2.webp
+public/dalle-portrait.webp

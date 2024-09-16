@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
-import { getImgCode, renameCard } from "~/functions/functions";
+import { getImgCode, renameCard } from "~/lib/functions";
 import { Link } from "@remix-run/react";
+import { CardObject } from "~/lib/types";
 
 interface TarotCardProps {
     sendData: (cardId: string, flipped: boolean, reversed: boolean, name: string) => void
-    card: {
-        desc: string
-        meaning_rev: string
-        meaning_up: string
-        name: string
-        name_short: string
-        suit: string
-        type: string
-        value: string
-        value_int: number
-    }
+    card: CardObject
 }
 
 const TarotCard = ({card, sendData}: TarotCardProps) => {
@@ -35,7 +26,7 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
     },[card])
 
     return (
-        <div className="tarot-card-wrapper fade-in-text">
+        <div className={`tarot-card-wrapper fade-in-text ${cardFlipped ? 'transition-all hover:scale-105': ''}`}>
             {
                 card 
                 &&
@@ -60,13 +51,11 @@ const TarotCard = ({card, sendData}: TarotCardProps) => {
                     {
                         cardFlipped
                         &&
-                            <div>
-                            <Link to={`/tarotdatabase/${card.name_short}`}
-                            className="text-pink">
-                                <h3 className="font-averiaSerifLibre text-xl">{renameCard(card.name)} {cardReversed && '(reversed)'}</h3>
-                            
-                            </Link>
-                            </div>
+                        <Link to={`/tarotdatabase/${card.name_short}`}
+                        className="text-pink">
+                            <h4 className="font-averiaSerifLibre text-xl">{renameCard(card.name)} {cardReversed && '(reversed)'}</h4>
+                        
+                        </Link>
  
                     }
                     </div>

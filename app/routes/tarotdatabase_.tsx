@@ -1,19 +1,9 @@
 import { LoaderFunction } from "@remix-run/node";
-import { useLoaderData, json } from "@remix-run/react";
-import HomeButton from "~/components/HomeButton";
+import { useLoaderData, json, Link } from "@remix-run/react";
 import Database from "~/components/Database";
+import Button from "~/components/Button";
+import { CardObject } from "~/lib/types";
 
-type CardObject = {
-    desc: string
-    meaning_rev: string
-    meaning_up: string
-    name: string
-    name_short: string
-    suit: string
-    type: string
-    value: string
-    value_int: number
-}
 
 type LoaderData = {
     cards: Array<CardObject>
@@ -35,7 +25,10 @@ export default function TarotDatabase() {
 
             <Database cards={cards}/>
 
-            <HomeButton />
+            <div className="flex justify-center gap-2">
+                <Link to="#top"><button>Top</button></Link>
+                <Button destination="/">Home</Button>
+            </div>
             
 
         </section>

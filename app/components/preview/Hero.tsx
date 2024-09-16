@@ -1,5 +1,5 @@
-import LogoFull from "../assets/logo-full.svg";
-import StarCircleOutline from "../assets/starcircle-outline.svg"
+import LogoFull from "../../assets/logo-full.svg";
+import StarCircleOutline from "../../assets/starcircle-outline.svg"
 
 export default function Hero() {
     return (
@@ -10,7 +10,7 @@ export default function Hero() {
                 <img src={LogoFull} alt="logo" className=" mb-8 svg" />
 
                 <div className="hero--text font-averiaSerifLibre text-xl max-w-[500px] text-center mx-auto">
-                    <p>Explore intuitive readings that help you navigate life's challenges and uncover new perspectives.</p>
+                    <p>Explore intuitive (and kinda mean) readings that help you navigate life's challenges and uncover new perspectives.</p>
                 </div>
             </div>
 
