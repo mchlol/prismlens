@@ -56,7 +56,7 @@ export default function DisplayCards({heading, subheading, blurb, cards}: Props)
             {
                 cards 
                 ? 
-                <div className="cards-wrapper border-4 bg-ridercream w-fit p-8 mx-auto md:h-[500px]">
+                <div className="cards-wrapper border-4 bg-ridercream sm:w-fit p-8 mx-auto md:h-[460px]">
                     
                     <div className="flex flex-row flex-wrap place-content-center gap-4 text-ridercream">
                         {cards.map( (card: CardObject) => <TarotCard key={card.name_short} card={card} sendData={sendData}/>)}
