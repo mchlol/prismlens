@@ -8,6 +8,10 @@ export default function Database({cards}: CardsArr) {
 
     const suits = ['swords', 'pentacles', 'wands', 'cups'];
 
+    function capitaliseSuit(string: string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
 
     return (
 
@@ -43,26 +47,11 @@ export default function Database({cards}: CardsArr) {
                             className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">Minor Arcana
                             </Link>
                         </li>
-                        <li>
-                            <Link to="#swords"
-                            className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">Swords
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="#wands"
-                            className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">Wands
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="#pentacles"
-                            className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">Pentacles
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="#cups"
-                            className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">Cups
-                            </Link>
-                        </li>
+                        
+                        {
+                            suits.map(suit => <li><Link to={`#${suit}`} className="text-purplegrey underline hover:no-underline underline-offset-2 transition-all duration-200 ease-in-out">{capitaliseSuit(suit)}</Link></li>)
+                        }
+                        
                     </ul>
                 </div>
                 <div className="flex-1 ml-4 p-4">
