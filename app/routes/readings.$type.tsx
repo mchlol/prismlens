@@ -3,7 +3,7 @@ import { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, json, useParams } from "@remix-run/react";
 import { CardStatusObj, CardObject } from "~/lib/types";
 import Button from "~/components/Button";
-import DisplayCards from "~/components/DisplayCards";
+import DisplayReadingCards from "~/components/DisplayReadingCards";
 import FallbackReading from "~/components/FallbackReading";
 
 type LoaderData = {
@@ -56,7 +56,7 @@ export default function GetTarotCards() {
             {
                 params.type === 'yesno'
                 ?
-                <DisplayCards 
+                <DisplayReadingCards 
                 cards={cards} 
                 heading="Yes or No" 
                 subheading="Struggling with a decision?" 
@@ -65,7 +65,7 @@ export default function GetTarotCards() {
                 : 
                     params.type === 'pastpresentfuture'
                     ?
-                    <DisplayCards
+                    <DisplayReadingCards
                     cards={cards}
                     heading="Past, Present, Future"
                     subheading="Gain insight into the energies and events shaping your life journey."

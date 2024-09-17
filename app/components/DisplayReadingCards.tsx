@@ -13,7 +13,7 @@ type Props = {
     blurb: string
 }
 
-export default function DisplayCards({heading, subheading, blurb, cards}: Props) {
+export default function DisplayReadingCards({heading, subheading, blurb, cards}: Props) {
 
     const numOfCards = cards.length;
     const [cardStatus, setCardStatus] = useState<CardStatusObj>({});
