@@ -63,7 +63,7 @@ export default function ReadingReport() {
     },[]);
 
     useEffect( () => {
-        // if the reading has changed assign a new id
+        // if the reading has changed (how?) assign a new id
         setReadingId(nanoid());
     },[reading])
 
@@ -72,7 +72,7 @@ export default function ReadingReport() {
 
         const readingToSave: ReadingToSave = {
             id: readingId,
-            date: Date.now(),
+            date: Date.now().toString(),
             type,
             cards: cardsArr,
             readingText: report
