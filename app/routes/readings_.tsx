@@ -11,6 +11,7 @@ export default function ReadingsPage() {
                 <p className="max-w-[80ch] mx-auto text-ridercream">
                     The Tarot can show you a different way to look at things, maybe reveal a new path or something. Just pick a reading if you're feeling stuck, want to reframe your perspective, or, I don't know, open your mind to whatever.
                 </p>
+                <Link to="./saved" className="underline underline-offset-2 hover:no-underline">Saved Readings</Link>
             </div>
             
             <div className="flex flex-wrap gap-4 justify-center m-8">
