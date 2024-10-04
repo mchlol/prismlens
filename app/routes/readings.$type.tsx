@@ -72,6 +72,15 @@ export default function GetTarotCards() {
                     blurb="Reflect on past influences, understand current situations, and explore potential future outcomes."
                     />
                     :  
+                        params.type === 'dream'
+                        ? 
+                        <DisplayReadingCards
+                        cards={cards}
+                        heading="Dream Interpretation"
+                        subheading="Unpack the symbolism behind a recent dream."
+                        blurb="Eat a lot of cheese last night? Figure out what your subconscious is doing while you sleep."
+                        />
+                        :
                         <FallbackReading type={params.type} />
             }
 
