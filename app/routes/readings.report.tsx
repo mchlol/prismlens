@@ -72,7 +72,7 @@ export default function ReadingReport() {
 
         const readingToSave: ReadingToSave = {
             id: readingId,
-            date: Date.now().toString(),
+            date: Date.now(),
             type,
             cards: cardsArr,
             readingText: report
