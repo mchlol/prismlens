@@ -24,7 +24,7 @@ type CardsArr = {
 
 type ReadingToSave = {
     id: string
-    date: number
+    date: string
     type: string
     cards: Array<string>
     readingText: string
