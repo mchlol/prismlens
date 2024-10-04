@@ -51,6 +51,8 @@ export default function GetTarotCards() {
         setAllCardsFlipped(allFlipped);
     },[cardStatus]);
 
+    // todo: return only one component & write a function to handle reading props and assign to the component
+
     return (
         <section className="text-center">
             {
